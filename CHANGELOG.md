@@ -7,6 +7,7 @@ All notable changes to the site are documented here. The format follows
 
 ### Added
 
+- PRs get `component:*` labels by path, from the org's reusable labeler and this repo's `.github/labeler.yml` (hidden-token-gaming/.github#3).
 - The first version of hiddentoken.com: home, games and join pages, and the handbook's rules,
   playbooks and legal pages pulled in as a Hugo module, with their links resolved to site pages.
   The footer carries the publisher notices from the handbook's `legal/notices.md`, and the build

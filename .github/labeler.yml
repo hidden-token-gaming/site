@@ -1,0 +1,11 @@
+# Path → component:* label for PRs (actions/labeler v7). Components are declared in
+# hidden-token-gaming/.github .github/project.yml.
+component:content:
+  - changed-files:
+      - any-glob-to-any-file: ["content/**", "go.mod", "go.sum"]
+component:theme:
+  - changed-files:
+      - any-glob-to-any-file: ["layouts/**", "assets/**", "static/**", "hugo.toml"]
+component:ci:
+  - changed-files:
+      - any-glob-to-any-file: [".github/**"]
