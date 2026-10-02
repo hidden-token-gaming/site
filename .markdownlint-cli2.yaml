@@ -1,0 +1,16 @@
+# Markdown lint for the content, the brand kit and the docs. Two style rules are off on purpose:
+#   MD013 line length: prose and tables read better unwrapped, and rendered Markdown reflows anyway.
+#   MD060 table column style: compact tables are easier to edit than padded ones.
+# MD025 ignores the front-matter title: Hugo pages carry both a `title:` and their own `# Heading`.
+config:
+  default: true
+  MD013: false
+  MD060: false
+  MD024: {siblings_only: true}
+  MD025: {front_matter_title: ""}
+globs:
+  - "**/*.md"
+ignores:
+  - "node_modules/**"
+  - "public/**"
+  - "resources/**"

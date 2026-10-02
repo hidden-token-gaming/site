@@ -1,13 +1,5 @@
-# The handbook is a Hugo module pinned in go.mod; Dependabot proposes the bump when it changes.
 version: 2
 updates:
-  - package-ecosystem: gomod
-    directory: /
-    schedule:
-      interval: daily
-    labels: [no-changelog]
-    commit-message:
-      prefix: "chore(deps)"
   - package-ecosystem: github-actions
     directory: /
     schedule:

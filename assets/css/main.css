@@ -1,4 +1,4 @@
-/* Hidden Token Gaming. Colours come from the handbook's brand/tokens.css (dark by default, light
+/* Hidden Token Gaming. Colours come from brand/tokens.css (dark by default, light
    when the visitor's system asks for it); this file only maps them to the names the layout uses. */
 :root {
   --bg: var(--htg-ground);
