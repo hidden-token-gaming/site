@@ -33,9 +33,8 @@
         Hidden Token Gaming</a>
       <nav aria-label="Main">
         {{- range site.Menus.main }}
-        <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+        <a href="{{ .URL }}"{{ with .Params.cta }} class="cta"{{ end }}{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
         {{- end }}
-        <a class="cta" href="{{ site.Params.discord }}">Discord</a>
       </nav>
     </div>
   </header>

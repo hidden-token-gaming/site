@@ -11,7 +11,7 @@ description: How to join Hidden Token Gaming.
 3. **Join the Discord:** [discord.gg/6AKnEQV](https://discord.gg/6AKnEQV).
 4. **Pick your games** during onboarding: what you play, on which platform and in which region,
    and which pings you want. Change them any time in *Channels & Roles*.
-5. **Find people and play.** Each game's [playbook](playbooks/_index.md) shows how to end up in the
-   same game as everyone else.
+5. **Find people and play.** Each game's playbook, at the top of its category on Discord, shows
+   how to end up in the same game as everyone else.
 
 Questions? Open a ticket in `#support` on Discord.

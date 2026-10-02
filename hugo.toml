@@ -6,7 +6,6 @@ disableKinds = ["taxonomy", "term", "rss"]
 
 [params]
   description = "A variety gaming community: Sea of Thieves, Star Citizen, War Dogs, Counter-Strike 2 and PUBG: BATTLEGROUNDS."
-  discord = "https://discord.gg/6AKnEQV"
   handbookRepo = "https://github.com/hidden-token-gaming/handbook"
 
 [markup.goldmark.parser]
@@ -21,17 +20,16 @@ disableKinds = ["taxonomy", "term", "rss"]
   pageRef = "/games"
   weight = 10
 [[menus.main]]
-  name = "Join"
-  pageRef = "/join"
-  weight = 20
-[[menus.main]]
-  name = "Playbooks"
-  pageRef = "/playbooks"
-  weight = 30
-[[menus.main]]
   name = "Rules"
   pageRef = "/policy"
-  weight = 40
+  weight = 20
+# Join is the only way into the Discord: the join page carries the age limit and the rules.
+[[menus.main]]
+  name = "Join"
+  pageRef = "/join"
+  weight = 90
+  [menus.main.params]
+    cta = true
 
 # The handbook is the source for rules, playbooks and legal pages. Its directories mount at the same
 # paths, so the handbook's own relative links resolve here. Section READMEs are replaced by the
@@ -45,10 +43,6 @@ disableKinds = ["taxonomy", "term", "rss"]
     [[module.imports.mounts]]
       source = "policy"
       target = "content/policy"
-      files = ["! README.md"]
-    [[module.imports.mounts]]
-      source = "playbooks"
-      target = "content/playbooks"
       files = ["! README.md"]
     [[module.imports.mounts]]
       source = "legal"
