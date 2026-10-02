@@ -1,0 +1,15 @@
+# Label PRs by component with the org's reusable labeler (hidden-token-gaming/.github) and this
+# repo's .github/labeler.yml. Fork PRs are skipped there.
+name: pr-label
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  label:
+    uses: hidden-token-gaming/.github/.github/workflows/labeler.yml@main
