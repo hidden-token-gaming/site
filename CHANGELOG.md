@@ -13,3 +13,7 @@ All notable changes to the site are documented here. The format follows
   fails if they are missing. Light and dark themes, no third-party requests, and a strict CSP.
   CI builds with a pinned Hugo, checks every internal link and anchor, and deploys to Cloudflare
   Pages (production from `main`, previews for PRs). Dependabot keeps the handbook current (#1).
+
+### Fixed
+
+- The deploy job no longer fails after a successful production deploy. Production has no branch alias, so the summary step's last test returned non-zero (#3).
