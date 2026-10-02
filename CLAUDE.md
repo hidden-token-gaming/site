@@ -26,6 +26,5 @@ is **public**: no secrets, private hostnames, IP addresses or personal data.
 - Conventional commits; messages get a why-paragraph, a change list, then `Closes #N`.
 - `CHANGELOG.md` entry under `[Unreleased]` per issue.
 - Before a PR: `hugo --gc --minify --panicOnWarning`, `npx markdownlint-cli2` and the lychee check
-  from `site.yml` must pass,
-  and look at the result at phone width and in dark mode.
+  from `site.yml` must pass, and look at the result at phone width and in dark mode.
 - No AI attribution anywhere.
