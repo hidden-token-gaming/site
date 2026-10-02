@@ -57,6 +57,15 @@ disableKinds = ["taxonomy", "term", "rss"]
     [[module.imports.mounts]]
       source = "legal/notices.md"
       target = "assets/handbook/notices.md"
+    # Brand colours and logo files come from the handbook's brand kit, so a brand change is a
+    # module bump here, not a copy.
+    [[module.imports.mounts]]
+      source = "brand/tokens.css"
+      target = "assets/css/tokens.css"
+    [[module.imports.mounts]]
+      source = "brand/logo"
+      target = "assets/brand"
+      files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
   [[module.mounts]]
     source = "content"
     target = "content"

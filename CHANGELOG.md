@@ -15,6 +15,10 @@ All notable changes to the site are documented here. The format follows
   CI builds with a pinned Hugo, checks every internal link and anchor, and deploys to Cloudflare
   Pages (production from `main`, previews for PRs). Dependabot keeps the handbook current (#1).
 
+### Changed
+
+- The site uses the brand kit from the handbook (hidden-token-gaming/handbook#6). Colours come from the handbook's `brand/tokens.css`: dark by default with a green accent, light when the visitor's system asks for it. The header and favicon carry the HTG mark (one colour in light mode). The handbook module bump also publishes the draft privacy policy, terms of service and questions for counsel, now listed on the Legal page, which no longer says they are being drafted.
+
 ### Fixed
 
 - The deploy job no longer fails after a successful production deploy. Production has no branch alias, so the summary step's last test returned non-zero (#3).
