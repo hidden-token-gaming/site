@@ -1,0 +1,15 @@
+# Changelog
+
+All notable changes to the site are documented here. The format follows
+[Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+## [Unreleased]
+
+### Added
+
+- The first version of hiddentoken.com: home, games and join pages, and the handbook's rules,
+  playbooks and legal pages pulled in as a Hugo module, with their links resolved to site pages.
+  The footer carries the publisher notices from the handbook's `legal/notices.md`, and the build
+  fails if they are missing. Light and dark themes, no third-party requests, and a strict CSP.
+  CI builds with a pinned Hugo, checks every internal link and anchor, and deploys to Cloudflare
+  Pages (production from `main`, previews for PRs). Dependabot keeps the handbook current (#1).

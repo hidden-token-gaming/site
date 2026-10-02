@@ -1,0 +1,17 @@
+# Org-wide PR checks (hidden-token-gaming/.github): Conventional-Commit title with a lower-case
+# subject, and a CHANGELOG entry under [Unreleased] unless the PR carries the no-changelog label.
+name: pr-checks
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  title:
+    uses: hidden-token-gaming/.github/.github/workflows/pr-title.yml@main
+  changelog:
+    uses: hidden-token-gaming/.github/.github/workflows/changelog.yml@main
