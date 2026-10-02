@@ -47,5 +47,14 @@ for name in htg-lockup htg-lockup-mono htg-lockup-stacked; do
   render "logo/$name.svg" "logo/png/$name@2x.png" "$(printf '%.0f' "$(echo "$w*2" | bc)")" "$(printf '%.0f' "$(echo "$h*2" | bc)")"
 done
 
+# One-colour variations: white and ink at 512 px, and the variation's colour at 256 px.
+while read -r name colour; do
+  render "logo/variations/htg-mark-$name.svg" "logo/variations/png/htg-mark-$name-white-512.png" 512 512 '#ffffff'
+  render "logo/variations/htg-mark-$name.svg" "logo/variations/png/htg-mark-$name-ink-512.png" 512 512 '#0b1222'
+  if [[ "$colour" != "-" ]]; then
+    render "logo/variations/htg-mark-$name.svg" "logo/variations/png/htg-mark-$name-colour-256.png" 256 256 "$colour"
+  fi
+done < <(python3 -c 'import json,sys; [print(v["name"], v["colour"] or "-") for v in json.load(open(sys.argv[1]))]' "$BRAND/logo/variations/variations.json")
+
 render discord/server-icon.svg discord/server-icon-512.png 512 512
 render wardogs/server-banner.svg wardogs/server-banner-1024x256.png 1024 256

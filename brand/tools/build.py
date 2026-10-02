@@ -11,6 +11,7 @@ shaped with HarfBuzz (kerning included) and converted to outlines, so no SVG dep
 
 All mark geometry is in a 0-100 box. Light comes from the top left.
 """
+import json
 import math
 import pathlib
 
@@ -180,6 +181,133 @@ def mark_flat():
     return (place(BACK, flat_coin(False), ' mask="url(#htg-flat-gap)"') + "\n" + place(FRONT, flat_coin(True)))
 
 
+# ---------------------------------------------------------------- one-colour variations
+#
+# Each variation strikes a different emblem into the front token, in place of the star, so the
+# family shares the locked geometry. Emblems are drawn into a mask in the token's own 0-100 box:
+# black cuts the face away, white fills it back in for inner detail. They sit inside the beads
+# (radius 34) with the same weight as the star, centred where the star is (50, 51).
+#
+# Every emblem is HTG's own symbol. None is, or imitates, a game's logo or art (publisher rules).
+
+STROKE = 'fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round"'
+
+
+def _emblem_star():
+    return f'<path d="{poly(star(50, 51, 14, 5.8))}"/>'
+
+
+def _emblem_shield():
+    return '<path d="M50 36.5 L62.5 41 V51.5 C62.5 59 57.5 63.5 50 66.5 C42.5 63.5 37.5 59 37.5 51.5 V41 Z"/>'
+
+
+def _emblem_heart():
+    return ('<path d="M50 64.5 C41 58.5 36 53 36 47 C36 42 39.5 38.5 43.5 38.5 C46.5 38.5 48.7 40.3 50 43 '
+            'C51.3 40.3 53.5 38.5 56.5 38.5 C60.5 38.5 64 42 64 47 C64 53 59 58.5 50 64.5 Z"/>')
+
+
+def _emblem_ticket():
+    # An arcade prize ticket, tilted: notched ends and a perforation.
+    return ('<g transform="rotate(-14 50 51)">'
+            '<rect x="35" y="43" width="30" height="16" rx="1.5"/>'
+            '<circle cx="35" cy="51" r="3" fill="#fff"/><circle cx="65" cy="51" r="3" fill="#fff"/>'
+            '<path d="M57 44.8 V57.2" stroke="#fff" stroke-width="1.4" stroke-dasharray="1.6 1.6"/></g>')
+
+
+def _emblem_seedling():
+    return (f'<path d="M50 65 V50" {STROKE} stroke-width="3"/>'
+            '<path d="M50 52 C44 52 39 48 38.5 41.5 C45 41.5 49.5 45.5 50 52 Z"/>'
+            '<path d="M50 48.5 C50.8 41.5 56 37 62.5 37 C62.3 43.8 57 48.5 50 48.5 Z"/>')
+
+
+def _emblem_bot():
+    return (f'<path d="M50 42 V37.5" {STROKE} stroke-width="2.4"/><circle cx="50" cy="36" r="2.2"/>'
+            '<rect x="38" y="42" width="24" height="19" rx="5"/>'
+            '<circle cx="45" cy="50.5" r="2.6" fill="#fff"/><circle cx="55" cy="50.5" r="2.6" fill="#fff"/>'
+            '<path d="M45.5 56.5 H54.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>')
+
+
+def _emblem_flag():
+    # A rally flag: where the crew musters.
+    return (f'<path d="M41 66 V37" {STROKE} stroke-width="3"/>'
+            '<path d="M42.5 38 H62 L57 44.5 L62 51 H42.5 Z"/>')
+
+
+def _emblem_anchor():
+    return (f'<circle cx="50" cy="38.5" r="3.2" {STROKE} stroke-width="3"/>'
+            f'<path d="M50 41.7 V64.5 M42.5 47 H57.5 M37.5 55.5 C38.5 61.5 43.5 64.5 50 64.5 '
+            f'C56.5 64.5 61.5 61.5 62.5 55.5" {STROKE} stroke-width="3.2"/>'
+            '<path d="M35.5 57.5 L37.5 52.5 L40.5 56.5 Z M64.5 57.5 L62.5 52.5 L59.5 56.5 Z"/>')
+
+
+def _emblem_planet():
+    # A ringed planet; the ring passes in front of the planet's lower half.
+    ring = 'ellipse cx="50" cy="51" rx="16" ry="5" transform="rotate(-18 50 51)"'
+    return (f'<{ring} {STROKE} stroke-width="2.4"/>'
+            '<circle cx="50" cy="51" r="8.5"/>'
+            '<clipPath id="htg-front-ring"><rect x="30" y="51" width="40" height="20" transform="rotate(-18 50 51)"/></clipPath>'
+            f'<g clip-path="url(#htg-front-ring)"><{ring} fill="none" stroke="#fff" stroke-width="5"/>'
+            f'<{ring} {STROKE} stroke-width="2.4"/></g>')
+
+
+def _emblem_dogtag():
+    return ('<g transform="rotate(12 50 51)">'
+            '<rect x="41.5" y="37" width="17" height="27" rx="6"/>'
+            '<circle cx="50" cy="41.5" r="1.8" fill="#fff"/>'
+            '<path d="M45.5 49.5 H54.5 M45.5 53.5 H54.5 M45.5 57.5 H51.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></g>')
+
+
+def _emblem_crosshair():
+    return (f'<circle cx="50" cy="51" r="10" {STROKE} stroke-width="3.2"/>'
+            f'<path d="M50 36.5 V44.5 M50 57.5 V65.5 M35.5 51 H43.5 M56.5 51 H64.5" {STROKE} stroke-width="3.2"/>'
+            '<circle cx="50" cy="51" r="2.2"/>')
+
+
+def _emblem_parachute():
+    return ('<path d="M36 48 C36 40 42.5 35.5 50 35.5 C57.5 35.5 64 40 64 48 '
+            'C61.7 46 59 46 56.7 48 C54.4 46 51.7 46 50 48 C48.3 46 45.6 46 43.3 48 C41 46 38.3 46 36 48 Z"/>'
+            f'<path d="M37 48.5 L47.5 59.5 M50 48.5 V59.5 M63 48.5 L52.5 59.5" {STROKE} stroke-width="1.5"/>'
+            '<rect x="46.5" y="59" width="7" height="6.5" rx="1.2"/>')
+
+
+# name → (emblem function, emblem, what it marks, colour or None for ink and white only).
+# Colours: staff and games use their Discord role colours (Moderator, Game Lead) so the art and
+# Discord agree; events use the brand purple, which means "events" in the kit (the Event Host
+# role's #9b59b6 is 2.7:1 on Discord's dark theme). Every colour is at least 3:1 on HTG's dark
+# ground and on Discord's. Supporters get a colour when they launch. Agreed with John, 2026-10-02.
+VARIATIONS = {
+    "star": (_emblem_star, "Star", "The HTG mark itself", GREEN),
+    "staff": (_emblem_shield, "Shield", "Staff: HMFIC, Admin, Moderators", "#f1c40f"),
+    "host": (_emblem_ticket, "Arcade prize ticket", "Event hosts and events", PURPLE),
+    "supporter": (_emblem_heart, "Heart", "Supporters, when they launch", None),
+    "seeding": (_emblem_seedling, "Seedling", "Seeding the War Dogs server", GREEN),
+    "bot": (_emblem_bot, "Bot", "The HTG bot: avatar and bot posts", BLUE),
+    "muster": (_emblem_flag, "Rally flag", "Muster, the crew-up service (later)", BLUE),
+    "sot": (_emblem_anchor, "Anchor", "Sea of Thieves", "#1abc9c"),
+    "sc": (_emblem_planet, "Ringed planet", "Star Citizen", "#3498db"),
+    "wd": (_emblem_dogtag, "Dog tag", "War Dogs", "#95a5a6"),
+    "cs": (_emblem_crosshair, "Crosshair", "Counter-Strike 2", "#f39c12"),
+    "pubg": (_emblem_parachute, "Parachute", "PUBG: BATTLEGROUNDS", "#e74c3c"),
+}
+
+
+def flat_coin_emblem(mask_id):
+    beads = " ".join(circle(50 + 34 * math.cos(2 * math.pi * k / 30), 50 + 34 * math.sin(2 * math.pi * k / 30), 1.7) for k in range(30))
+    return (f'<path d="{circle(50, 50, 48)} {circle(50, 50, 42)}" fill-rule="evenodd"/>\n'
+            f'<path d="{circle(50, 50, 39)} {beads}" fill-rule="evenodd" mask="url(#{mask_id})"/>')
+
+
+def variation(name):
+    """The one-colour mark with this variation's emblem. Returns (body, defs)."""
+    emblem = VARIATIONS[name][0]()
+    mask_id = f"htg-emblem-{name}"
+    defs = (mark_flat_defs() + "\n"
+            f'<mask id="{mask_id}" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">'
+            f'<rect width="100" height="100" fill="#fff"/><g fill="#000">{emblem}</g></mask>')
+    body = place(BACK, flat_coin(False), ' mask="url(#htg-flat-gap)"') + "\n" + place(FRONT, flat_coin_emblem(mask_id))
+    return body, defs
+
+
 # ---------------------------------------------------------------- text as outlines
 
 _fonts = {}
@@ -281,6 +409,19 @@ def main():
     svg("logo/htg-mark.svg", 128, 128, title + mark_full(True), mark_defs(), view="-14 -14 128 128")
     svg("logo/htg-mark-noglow.svg", 100, 100, title + mark_full(False), mark_defs())
     svg("logo/htg-mark-mono.svg", 100, 100, title + f'<g fill="currentColor">{mark_flat()}</g>', mark_flat_defs())
+    # One-colour variations: the same mark with another emblem on the front token. The manifest
+    # tells render.sh which colour each one is rendered in.
+    manifest = []
+    for name, (_, emblem, what, colour) in VARIATIONS.items():
+        if name == "star":
+            continue
+        body, defs = variation(name)
+        svg(f"logo/variations/htg-mark-{name}.svg", 100, 100,
+            f"<title>Hidden Token Gaming: {what}</title>" + f'<g fill="currentColor">{body}</g>', defs)
+        manifest.append({"name": name, "emblem": emblem, "use": what, "colour": colour})
+    out = BRAND / "logo/variations/variations.json"
+    out.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
+    print("wrote logo/variations/variations.json")
 
     # Main lockup on dark: mark 120 px, wordmark 52 px, rule beside GAMING. 20 px room for the glow.
     pad, mark_px, gap, size = 20, 120, 28, 52
