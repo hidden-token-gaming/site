@@ -10,8 +10,6 @@ cascade:
     target: {path: /legal/privacy}
   - weight: 4
     target: {path: /legal/terms}
-  - weight: 5
-    target: {path: /legal/counsel-questions}
 ---
 
 # Legal

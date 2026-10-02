@@ -53,7 +53,8 @@ disableKinds = ["taxonomy", "term", "rss"]
     [[module.imports.mounts]]
       source = "legal"
       target = "content/legal"
-      files = ["! README.md"]
+      # Questions for counsel stay in the handbook; the drafts' links to them go to GitHub.
+      files = ["! README.md", "! counsel-questions.md"]
     [[module.imports.mounts]]
       source = "legal/notices.md"
       target = "assets/handbook/notices.md"

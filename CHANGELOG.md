@@ -17,7 +17,7 @@ All notable changes to the site are documented here. The format follows
 
 ### Changed
 
-- The site uses the brand kit from the handbook (hidden-token-gaming/handbook#6). Colours come from the handbook's `brand/tokens.css`: dark by default with a green accent, light when the visitor's system asks for it. The header and favicon carry the HTG mark (one colour in light mode). The handbook module bump also publishes the draft privacy policy, terms of service and questions for counsel, now listed on the Legal page, which no longer says they are being drafted.
+- The site uses the brand kit from the handbook (hidden-token-gaming/handbook#6). Colours come from the handbook's `brand/tokens.css`: dark by default with a green accent, light when the visitor's system asks for it. The header and favicon carry the HTG mark (one colour in light mode). The handbook module bump also publishes the draft privacy policy and terms of service, now listed on the Legal page, which no longer says they are being drafted. The questions for counsel stay off the site; the drafts link to them on GitHub.
 
 ### Fixed
 
