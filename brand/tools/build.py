@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Build the Hidden Token Gaming brand SVGs from the locked design.
 
-The mark, the lockup, the Discord icon and the War Dogs banner are all generated here, so a change
-to the design (or a new variation) is a change to this file, not a hand edit of an SVG. Text is
-shaped with HarfBuzz (kerning included) and converted to outlines, so no SVG depends on a font.
+The mark, the lockup, the link-preview card, the Discord icon and the War Dogs banner are all
+generated here, so a change to the design (or a new variation) is a change to this file, not a hand
+edit of an SVG. Text is shaped with HarfBuzz (kerning included) and converted to outlines, so no
+SVG depends on a font.
 
     python3 -m venv .venv && .venv/bin/pip install fonttools uharfbuzz
     .venv/bin/python brand/tools/build.py      # writes the SVGs
@@ -431,7 +432,17 @@ def main():
     tx, ty = pad + mark_px + gap, pad + (mark_px - text_h) / 2
     body, tdefs, _, _ = wordmark(tx, ty, size)
     mark = f'<g transform="translate({pad} {pad}) scale({mark_px / 100})">{mark_full(True)}</g>'
-    svg("logo/htg-lockup.svg", w, h, title + mark + "\n" + body, mark_defs() + "\n" + tdefs)
+    lockup, lockup_defs = mark + "\n" + body, mark_defs() + "\n" + tdefs
+    svg("logo/htg-lockup.svg", w, h, title + lockup, lockup_defs)
+
+    # Link-preview card (og:image), 1200 x 630: the main lockup scaled as one piece, so its
+    # proportions stay locked, centred on the ground. 960 px wide leaves 120 px each side, and the
+    # height stays inside the 1200 x 600 centre that X crops summary_large_image cards to.
+    k = 960 / (w - 2 * pad)
+    ox, oy = (1200 - w * k) / 2, (630 - h * k) / 2
+    body = (f'<rect width="1200" height="630" fill="{GROUND}"/>'
+            f'<g transform="translate({f(ox)} {f(oy)}) scale({k:.4f})">{lockup}</g>')
+    svg("social/og-image.svg", 1200, 630, title + body, lockup_defs)
     # One-colour lockup for light backgrounds: no chrome, no glow, a solid slate rule.
     body, tdefs, _, _ = wordmark(tx, ty, size, chrome=False, muted="#4f5d74", gid="htg-mono", rule_solid="#4f5d74")
     mark = f'<g transform="translate({pad} {pad}) scale({mark_px / 100})" fill="{INK}">{mark_flat()}</g>'

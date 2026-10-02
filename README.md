@@ -30,6 +30,10 @@ The brand kit's SVGs and PNGs are generated: change `brand/tools/build.py`, neve
   notices have one source. The build fails if the block or the Star Citizen notice is missing.
 - **Brand colours and mark files** are mounted from `brand/` (`hugo.toml`), so a brand change is
   one PR here.
+- **Link previews:** every page has Open Graph and Twitter-card tags (`layouts/baseof.html`). The
+  card image is `brand/social/og-image-1200x630.png`, generated like the other brand files, and the
+  build fails if it's missing. A page's `description` front matter feeds the preview, falling back
+  to the site's.
 - **No third-party anything:** no scripts, fonts, analytics or game logos. `static/_headers` sets a
   strict CSP.
 
