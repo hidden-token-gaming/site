@@ -1,7 +1,7 @@
-{{- /* The footer is the "Site footer" block of the handbook's legal/notices.md, so the publisher
+{{- /* The footer is the "Site footer" block of content/legal/notices.md, so the publisher
        notices have one source. A missing block fails the build rather than shipping without them. */ -}}
-{{- $src := resources.Get "handbook/notices.md" -}}
-{{- if not $src }}{{ errorf "footer: handbook legal/notices.md is not mounted" }}{{ end -}}
+{{- $src := resources.Get "legal/notices.md" -}}
+{{- if not $src }}{{ errorf "footer: content/legal/notices.md is not mounted as an asset" }}{{ end -}}
 {{- $m := findRESubmatch "(?s)## Site footer.*?```markdown\n(.*?)\n```" $src.Content 1 -}}
 {{- if not $m }}{{ errorf "footer: no ```markdown block under \"## Site footer\" in legal/notices.md" }}{{ end -}}
 {{- $block := index (index $m 0) 1 -}}
@@ -12,7 +12,7 @@
       <a href="{{ "/join/" | relURL }}">Join</a> ·
       <a href="{{ "/legal/notices/" | relURL }}#trademark-notices">Trademark notices</a> ·
       <a href="{{ "/legal/" | relURL }}">Legal</a> ·
-      <a href="{{ site.Params.handbookRepo }}">Handbook on GitHub</a>
+      <a href="{{ site.Params.sourceRepo }}">Source on GitHub</a>
     </p>
     <div class="notices">{{ $.RenderString (dict "display" "block") $block }}</div>
   </div>

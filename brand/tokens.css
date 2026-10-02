@@ -1,0 +1,31 @@
+/* Hidden Token Gaming colour tokens (brand/tokens.json). Dark is the designed default. */
+:root {
+  --htg-ground: #070b17;
+  --htg-surface: #0f1526;
+  --htg-line: #1f2a44;
+  --htg-text: #e8eef6;
+  --htg-muted: #93a3bb;
+  --htg-accent: #3ee07a;
+  --htg-on-accent: #070b17;
+  --htg-link: #3ee07a;
+  --htg-green: #3ee07a;
+  --htg-blue: #3d8bff;
+  --htg-purple: #8a63f5;
+  --htg-chrome: linear-gradient(180deg, #ffffff 0%, #dfe6ee 38%, #7d8ca6 50%, #c9d3de 62%, #f4f7fb 100%);
+  --htg-rule: linear-gradient(90deg, #3ee07a 0%, #3d8bff 30%, #3d8bff 70%, #8a63f5 100%);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --htg-ground: #f2f5f9;
+    --htg-surface: #ffffff;
+    --htg-line: #d5dce6;
+    --htg-text: #0b1222;
+    --htg-muted: #4f5d74;
+    --htg-on-accent: #0b1222;
+    --htg-link: #0a7a3a;
+    --htg-blue: #1554d1;
+    --htg-purple: #6a3fd8;
+    color-scheme: light;
+  }
+}

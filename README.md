@@ -3,35 +3,33 @@
 [hiddentoken.com](https://hiddentoken.com): the Hidden Token Gaming website, built with
 [Hugo](https://gohugo.io) and hosted on Cloudflare Pages.
 
-The rules and legal pages come from the
-[handbook](https://github.com/hidden-token-gaming/handbook) as a Hugo module, so they are edited
-there, not here. Playbooks are members-only and live in Discord, not on the site. This repo holds the home, games and join pages, the layouts and the styles.
+This repo holds everything HTG publishes: the home, games and join pages, the rules
+(`content/policy/`), the publisher rules, required notices, privacy policy and terms
+(`content/legal/`), and the brand kit (`brand/`). The staff handbook, with the plan, runbooks and
+questions for counsel, is private. Playbooks are members-only and live in Discord, not on the site.
 
 ## Working on it
 
-Needs Hugo 0.162+ and Go (for the module).
+Needs Hugo 0.162+.
 
 ```bash
 hugo server                                   # http://localhost:1313
 hugo --gc --minify --panicOnWarning           # what CI builds
-hugo mod get -u github.com/hidden-token-gaming/handbook   # pull the latest handbook
+npx markdownlint-cli2                         # what the lint workflow runs
 ```
 
-To preview unpublished handbook changes, point the module at a local checkout:
-
-```bash
-HUGO_MODULE_REPLACEMENTS="github.com/hidden-token-gaming/handbook -> ../../handbook" hugo server
-```
+The brand kit's SVGs and PNGs are generated: change `brand/tools/build.py`, never the files. See
+[`brand/README.md`](brand/README.md).
 
 ## How it fits together
 
-- **Handbook pages** keep their handbook paths (`/policy/`, `/legal/`), so their
-  relative `.md` links resolve to site pages. Links to anything the site doesn't publish go to the
-  handbook on GitHub (`layouts/_markup/render-link.html`). In this repo's own content, a link that
-  doesn't resolve fails the build.
-- **The footer** is the "Site footer" block of the handbook's `legal/notices.md`, so the
-  publisher notices have one source. The build fails if the block or the Star Citizen notice is
-  missing.
+- **The rules and legal pages** are written to read on GitHub too, so they link to each other with
+  relative `.md` paths. `layouts/_markup/render-link.html` resolves those to site pages, and a link
+  that doesn't resolve fails the build.
+- **The footer** is the "Site footer" block of `content/legal/notices.md`, so the publisher
+  notices have one source. The build fails if the block or the Star Citizen notice is missing.
+- **Brand colours and mark files** are mounted from `brand/` (`hugo.toml`), so a brand change is
+  one PR here.
 - **No third-party anything:** no scripts, fonts, analytics or game logos. `static/_headers` sets a
   strict CSP.
 
@@ -41,5 +39,5 @@ HUGO_MODULE_REPLACEMENTS="github.com/hidden-token-gaming/handbook -> ../../handb
 and deploys with Wrangler: `main` to production, same-repo PRs to a preview whose URL is in the job
 summary. It needs the `CLOUDFLARE_PAGES_TOKEN` secret (Pages edit only) and the
 `CLOUDFLARE_ACCOUNT_ID` variable. The Pages project, domain and DNS are OpenTofu in
-[`deploy`](https://github.com/hidden-token-gaming/deploy) (`tofu/cloudflare/`). Dependabot proposes
-handbook bumps daily.
+[`deploy`](https://github.com/hidden-token-gaming/deploy) (`tofu/cloudflare/`). `lint.yml` runs
+markdownlint. Dependabot keeps the workflow actions current.

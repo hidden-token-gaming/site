@@ -1,5 +1,5 @@
-{{- /* A page's title: front matter, else the first level-1 heading (handbook pages have no front
-       matter), else the file name. */ -}}
+{{- /* A page's title: front matter, else the first level-1 heading (the rules and legal pages have
+       no front matter), else the file name. */ -}}
 {{- $t := .Title -}}
 {{- if not $t -}}
   {{- with findRESubmatch `(?m)^# (.+)$` .RawContent 1 -}}
