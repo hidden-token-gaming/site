@@ -45,6 +45,39 @@ game.
 - **Never combine the mark with game logos, game art or look-alikes.** HTG's identity is its own;
   the [publisher rules](../content/legal/publisher-rules.md) say what each publisher allows.
 
+## Variations
+
+The one-colour mark with another emblem struck into the front token, in place of the star. Staff,
+events, services and each game share the family look and can still be told apart at a glance. They
+are for channel and category art, bot avatars, event posts and the site. Discord role icons need a
+level 2 server boost, which the server doesn't have yet.
+
+| Variation | Emblem | For | Colour |
+|---|---|---|---|
+| [`staff`](logo/variations/htg-mark-staff.svg) | Shield | Staff: HMFIC, Admin, Moderators | `#f1c40f` |
+| [`host`](logo/variations/htg-mark-host.svg) | Arcade prize ticket | Event hosts and events | `#8a63f5` |
+| [`supporter`](logo/variations/htg-mark-supporter.svg) | Heart | Supporters, when they launch | none yet |
+| [`seeding`](logo/variations/htg-mark-seeding.svg) | Seedling | Seeding the War Dogs server | `#3ee07a` |
+| [`bot`](logo/variations/htg-mark-bot.svg) | Bot | The HTG bot: avatar and bot posts | `#3d8bff` |
+| [`muster`](logo/variations/htg-mark-muster.svg) | Rally flag | Muster, the crew-up service (later) | `#3d8bff` |
+| [`sot`](logo/variations/htg-mark-sot.svg) | Anchor | Sea of Thieves | `#1abc9c` |
+| [`sc`](logo/variations/htg-mark-sc.svg) | Ringed planet | Star Citizen | `#3498db` |
+| [`wd`](logo/variations/htg-mark-wd.svg) | Dog tag | War Dogs | `#95a5a6` |
+| [`cs`](logo/variations/htg-mark-cs.svg) | Crosshair | Counter-Strike 2 | `#f39c12` |
+| [`pubg`](logo/variations/htg-mark-pubg.svg) | Parachute | PUBG: BATTLEGROUNDS | `#e74c3c` |
+
+- Every emblem is HTG's own symbol. None is, or imitates, a game's logo or art, which the
+  publisher rules forbid. Add a game's variation the same way: an HTG symbol for how the community
+  plays it, never the game's mark.
+- **Colours:** staff and the games use their Discord role colours (Moderator, Game Lead), so the
+  art and Discord agree. Events use the brand purple, which means "events" in the kit. Every colour
+  is at least 3:1 on the dark ground and on Discord's dark theme. Supporters get a colour when they
+  launch. On light backgrounds, use ink.
+- **Files:** each SVG takes its colour from `currentColor`. `logo/variations/png/` has each one at
+  512 px in white and in ink, and at 256 px in its colour. `logo/variations/variations.json` lists
+  them for tools.
+- Like the main mark, they read as a plain token at 24 px and below.
+
 ## Wordmark
 
 "HIDDEN TOKEN" is set in [Archivo](https://github.com/Omnibus-Type/Archivo) at weight 800 and its
@@ -87,9 +120,10 @@ server doesn't have yet, so they aren't part of this kit.
 ## War Dogs banner
 
 The server browser shows a 1024×256 image from `ServerImageURL`. War Dogs only accepts images hosted
-on catbox.moe, imgbb.com or postimg.cc; any other host fails every config edit with a 422. Upload
-[`wardogs/server-banner-1024x256.png`](wardogs/server-banner-1024x256.png) to one of them and set
-the URL in the server config.
+on catbox.moe, imgbb.com or postimg.cc; any other host fails every config edit with a 422.
+[`wardogs/server-banner-1024x256.png`](wardogs/server-banner-1024x256.png) is live on the HTG server
+since 2026-10-02, hosted on imgbb. To change it, rebuild the banner, upload the new file and set the
+new URL in the server config.
 
 ## Rebuilding
 
@@ -102,6 +136,3 @@ python3 -m venv .venv && .venv/bin/pip install fonttools uharfbuzz
 .venv/bin/python brand/tools/build.py
 brand/tools/render.sh   # needs google-chrome and ImageMagick
 ```
-
-Variations of the one-colour mark for different parts of the community (staff, events, each game)
-are tracked in #19.

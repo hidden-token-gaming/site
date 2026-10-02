@@ -11,6 +11,7 @@ shaped with HarfBuzz (kerning included) and converted to outlines, so no SVG dep
 
 All mark geometry is in a 0-100 box. Light comes from the top left.
 """
+import json
 import math
 import pathlib
 
@@ -269,20 +270,24 @@ def _emblem_parachute():
             '<rect x="46.5" y="59" width="7" height="6.5" rx="1.2"/>')
 
 
-# name → (emblem, what it marks, suggested colour or None for ink only)
+# name → (emblem function, emblem, what it marks, colour or None for ink and white only).
+# Colours: staff and games use their Discord role colours (Moderator, Game Lead) so the art and
+# Discord agree; events use the brand purple, which means "events" in the kit (the Event Host
+# role's #9b59b6 is 2.7:1 on Discord's dark theme). Every colour is at least 3:1 on HTG's dark
+# ground and on Discord's. Supporters get a colour when they launch. Agreed with John, 2026-10-02.
 VARIATIONS = {
-    "star": (_emblem_star, "The HTG mark itself (for reference)", GREEN),
-    "staff": (_emblem_shield, "Staff: HMFIC, Admin, Moderators", "#f1c40f"),
-    "host": (_emblem_ticket, "Event hosts, and events (an arcade prize ticket)", "#9b59b6"),
-    "supporter": (_emblem_heart, "Supporters (when they launch)", PURPLE),
-    "seeding": (_emblem_seedling, "Seeding the War Dogs server", GREEN),
-    "bot": (_emblem_bot, "The HTG bot's avatar and bot posts", BLUE),
-    "muster": (_emblem_flag, "Muster, the crew-up service (later)", BLUE),
-    "sot": (_emblem_anchor, "Sea of Thieves", "#1abc9c"),
-    "sc": (_emblem_planet, "Star Citizen", "#3498db"),
-    "wd": (_emblem_dogtag, "War Dogs", "#95a5a6"),
-    "cs": (_emblem_crosshair, "Counter-Strike 2", "#f39c12"),
-    "pubg": (_emblem_parachute, "PUBG: BATTLEGROUNDS", "#e74c3c"),
+    "star": (_emblem_star, "Star", "The HTG mark itself", GREEN),
+    "staff": (_emblem_shield, "Shield", "Staff: HMFIC, Admin, Moderators", "#f1c40f"),
+    "host": (_emblem_ticket, "Arcade prize ticket", "Event hosts and events", PURPLE),
+    "supporter": (_emblem_heart, "Heart", "Supporters, when they launch", None),
+    "seeding": (_emblem_seedling, "Seedling", "Seeding the War Dogs server", GREEN),
+    "bot": (_emblem_bot, "Bot", "The HTG bot: avatar and bot posts", BLUE),
+    "muster": (_emblem_flag, "Rally flag", "Muster, the crew-up service (later)", BLUE),
+    "sot": (_emblem_anchor, "Anchor", "Sea of Thieves", "#1abc9c"),
+    "sc": (_emblem_planet, "Ringed planet", "Star Citizen", "#3498db"),
+    "wd": (_emblem_dogtag, "Dog tag", "War Dogs", "#95a5a6"),
+    "cs": (_emblem_crosshair, "Crosshair", "Counter-Strike 2", "#f39c12"),
+    "pubg": (_emblem_parachute, "Parachute", "PUBG: BATTLEGROUNDS", "#e74c3c"),
 }
 
 
@@ -404,13 +409,19 @@ def main():
     svg("logo/htg-mark.svg", 128, 128, title + mark_full(True), mark_defs(), view="-14 -14 128 128")
     svg("logo/htg-mark-noglow.svg", 100, 100, title + mark_full(False), mark_defs())
     svg("logo/htg-mark-mono.svg", 100, 100, title + f'<g fill="currentColor">{mark_flat()}</g>', mark_flat_defs())
-    # One-colour variations: the same mark with another emblem on the front token.
-    for name, (_, what, _) in VARIATIONS.items():
+    # One-colour variations: the same mark with another emblem on the front token. The manifest
+    # tells render.sh which colour each one is rendered in.
+    manifest = []
+    for name, (_, emblem, what, colour) in VARIATIONS.items():
         if name == "star":
             continue
         body, defs = variation(name)
         svg(f"logo/variations/htg-mark-{name}.svg", 100, 100,
             f"<title>Hidden Token Gaming: {what}</title>" + f'<g fill="currentColor">{body}</g>', defs)
+        manifest.append({"name": name, "emblem": emblem, "use": what, "colour": colour})
+    out = BRAND / "logo/variations/variations.json"
+    out.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
+    print("wrote logo/variations/variations.json")
 
     # Main lockup on dark: mark 120 px, wordmark 52 px, rule beside GAMING. 20 px room for the glow.
     pad, mark_px, gap, size = 20, 120, 28, 52

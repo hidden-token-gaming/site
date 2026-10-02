@@ -7,6 +7,7 @@ All notable changes to the site are documented here. The format follows
 
 ### Added
 
+- One-colour mark variations: the mark with another emblem in place of the star, for staff (shield), event hosts (arcade prize ticket), supporters (heart), War Dogs seeding (seedling), the bot, Muster (rally flag), and each launch game (anchor, ringed planet, dog tag, crosshair, parachute), all HTG's own symbols. `build.py` generates them from the locked geometry, with a manifest that `render.sh` follows for the PNGs: 512 px in white and ink, and 256 px in each variation's colour (Discord role colours for staff and games, brand purple for events). The brand README lists them, and its War Dogs section notes the banner is live (#11).
 - A games grid on the Games page and the home page, from a list in `data/games.yaml`. Each card has the game's Steam library hero art, which carries no logo, so PUBG's no-logo rule holds. Hugo fetches the art through Steam's store API at build time, crops it to 2:1 (with an optional per-game anchor) and serves it from the site, so the CSP still allows only the site's own images. A game without Steam art, such as Star Citizen, gets an HTG card. A failed fetch fails the build (#6).
 - PRs get `component:*` labels by path, from the org's reusable labeler and this repo's `.github/labeler.yml` (hidden-token-gaming/.github#3).
 - The first version of hiddentoken.com: home, games and join pages, and the handbook's rules,

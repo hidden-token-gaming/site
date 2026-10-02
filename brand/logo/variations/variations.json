@@ -1,0 +1,68 @@
+[
+  {
+    "name": "staff",
+    "emblem": "Shield",
+    "use": "Staff: HMFIC, Admin, Moderators",
+    "colour": "#f1c40f"
+  },
+  {
+    "name": "host",
+    "emblem": "Arcade prize ticket",
+    "use": "Event hosts and events",
+    "colour": "#8a63f5"
+  },
+  {
+    "name": "supporter",
+    "emblem": "Heart",
+    "use": "Supporters, when they launch",
+    "colour": null
+  },
+  {
+    "name": "seeding",
+    "emblem": "Seedling",
+    "use": "Seeding the War Dogs server",
+    "colour": "#3ee07a"
+  },
+  {
+    "name": "bot",
+    "emblem": "Bot",
+    "use": "The HTG bot: avatar and bot posts",
+    "colour": "#3d8bff"
+  },
+  {
+    "name": "muster",
+    "emblem": "Rally flag",
+    "use": "Muster, the crew-up service (later)",
+    "colour": "#3d8bff"
+  },
+  {
+    "name": "sot",
+    "emblem": "Anchor",
+    "use": "Sea of Thieves",
+    "colour": "#1abc9c"
+  },
+  {
+    "name": "sc",
+    "emblem": "Ringed planet",
+    "use": "Star Citizen",
+    "colour": "#3498db"
+  },
+  {
+    "name": "wd",
+    "emblem": "Dog tag",
+    "use": "War Dogs",
+    "colour": "#95a5a6"
+  },
+  {
+    "name": "cs",
+    "emblem": "Crosshair",
+    "use": "Counter-Strike 2",
+    "colour": "#f39c12"
+  },
+  {
+    "name": "pubg",
+    "emblem": "Parachute",
+    "use": "PUBG: BATTLEGROUNDS",
+    "colour": "#e74c3c"
+  }
+]
