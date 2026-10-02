@@ -3,9 +3,9 @@
 [hiddentoken.com](https://hiddentoken.com): the Hidden Token Gaming website, built with
 [Hugo](https://gohugo.io) and hosted on Cloudflare Pages.
 
-The rules, playbooks and legal pages come from the
+The rules and legal pages come from the
 [handbook](https://github.com/hidden-token-gaming/handbook) as a Hugo module, so they are edited
-there, not here. This repo holds the home, games and join pages, the layouts and the styles.
+there, not here. Playbooks are members-only and live in Discord, not on the site. This repo holds the home, games and join pages, the layouts and the styles.
 
 ## Working on it
 
@@ -25,7 +25,7 @@ HUGO_MODULE_REPLACEMENTS="github.com/hidden-token-gaming/handbook -> ../../handb
 
 ## How it fits together
 
-- **Handbook pages** keep their handbook paths (`/policy/`, `/playbooks/`, `/legal/`), so their
+- **Handbook pages** keep their handbook paths (`/policy/`, `/legal/`), so their
   relative `.md` links resolve to site pages. Links to anything the site doesn't publish go to the
   handbook on GitHub (`layouts/_markup/render-link.html`). In this repo's own content, a link that
   doesn't resolve fails the build.

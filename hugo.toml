@@ -6,7 +6,6 @@ disableKinds = ["taxonomy", "term", "rss"]
 
 [params]
   description = "A variety gaming community: Sea of Thieves, Star Citizen, War Dogs, Counter-Strike 2 and PUBG: BATTLEGROUNDS."
-  discord = "https://discord.gg/6AKnEQV"
   handbookRepo = "https://github.com/hidden-token-gaming/handbook"
 
 [markup.goldmark.parser]
@@ -21,17 +20,16 @@ disableKinds = ["taxonomy", "term", "rss"]
   pageRef = "/games"
   weight = 10
 [[menus.main]]
-  name = "Join"
-  pageRef = "/join"
-  weight = 20
-[[menus.main]]
-  name = "Playbooks"
-  pageRef = "/playbooks"
-  weight = 30
-[[menus.main]]
   name = "Rules"
   pageRef = "/policy"
-  weight = 40
+  weight = 20
+# Join is the only way into the Discord: the join page carries the age limit and the rules.
+[[menus.main]]
+  name = "Join"
+  pageRef = "/join"
+  weight = 90
+  [menus.main.params]
+    cta = true
 
 # The handbook is the source for rules, playbooks and legal pages. Its directories mount at the same
 # paths, so the handbook's own relative links resolve here. Section READMEs are replaced by the
@@ -47,16 +45,22 @@ disableKinds = ["taxonomy", "term", "rss"]
       target = "content/policy"
       files = ["! README.md"]
     [[module.imports.mounts]]
-      source = "playbooks"
-      target = "content/playbooks"
-      files = ["! README.md"]
-    [[module.imports.mounts]]
       source = "legal"
       target = "content/legal"
-      files = ["! README.md"]
+      # Questions for counsel stay in the handbook; the drafts' links to them go to GitHub.
+      files = ["! README.md", "! counsel-questions.md"]
     [[module.imports.mounts]]
       source = "legal/notices.md"
       target = "assets/handbook/notices.md"
+    # Brand colours and logo files come from the handbook's brand kit, so a brand change is a
+    # module bump here, not a copy.
+    [[module.imports.mounts]]
+      source = "brand/tokens.css"
+      target = "assets/css/tokens.css"
+    [[module.imports.mounts]]
+      source = "brand/logo"
+      target = "assets/brand"
+      files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
   [[module.mounts]]
     source = "content"
     target = "content"

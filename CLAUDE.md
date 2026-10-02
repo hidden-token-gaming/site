@@ -5,8 +5,9 @@ is **public**: no secrets, private hostnames, IP addresses or personal data.
 
 ## Rules
 
-- **Rules, playbooks and legal text live in the handbook**, not here. Fix them there and bump the
-  module (`hugo mod get -u github.com/hidden-token-gaming/handbook`).
+- **Rules and legal text live in the handbook**, not here. Fix them there and bump the module
+  (`hugo mod get -u github.com/hidden-token-gaming/handbook`). Playbooks are members-only: they live
+  in Discord, not on the site.
 - **Publisher rules apply to the site** (handbook `legal/publisher-rules.md`): no game logos or art
   without permission, nothing that implies endorsement, no Star Citizen or Sea of Thieves content
   near anything paid, and the footer notices verbatim and at equal size.

@@ -7,20 +7,34 @@
   <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ $title }} · {{ site.Title }}{{ end }}</title>
   <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
   <link rel="canonical" href="{{ .Permalink }}">
-  {{- with resources.Get "css/main.css" | minify | fingerprint }}
+  {{- with slice (resources.Get "css/tokens.css") (resources.Get "css/main.css") | resources.Concat "css/site.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+  {{- end }}
+  {{- $mark := resources.Get "brand/htg-mark-noglow.svg" | fingerprint }}
+  {{- $mono := resources.Get "brand/htg-mark-mono.svg" | fingerprint }}
+  <link rel="icon" href="{{ $mark.RelPermalink }}" type="image/svg+xml">
+  {{- with resources.Get "brand/png/htg-mark-noglow-32.png" | fingerprint }}
+  <link rel="icon" href="{{ .RelPermalink }}" type="image/png" sizes="32x32">
+  {{- end }}
+  {{- with resources.Get "brand/png/htg-mark-256.png" | fingerprint }}
+  <link rel="apple-touch-icon" href="{{ .RelPermalink }}">
   {{- end }}
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
-      <a class="wordmark" href="{{ "/" | relURL }}">Hidden Token Gaming</a>
+      <a class="wordmark" href="{{ "/" | relURL }}">
+        <picture>
+          {{- /* Chrome needs a dark ground; light mode gets the one-colour mark. */}}
+          <source srcset="{{ $mono.RelPermalink }}" media="(prefers-color-scheme: light)">
+          <img src="{{ $mark.RelPermalink }}" alt="" width="32" height="32">
+        </picture>
+        Hidden Token Gaming</a>
       <nav aria-label="Main">
         {{- range site.Menus.main }}
-        <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
+        <a href="{{ .URL }}"{{ with .Params.cta }} class="cta"{{ end }}{{ if or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) }} aria-current="page"{{ end }}>{{ .Name }}</a>
         {{- end }}
-        <a class="cta" href="{{ site.Params.discord }}">Discord</a>
       </nav>
     </div>
   </header>
