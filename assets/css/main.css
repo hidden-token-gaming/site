@@ -1,0 +1,76 @@
+/* Hidden Token Gaming. Neutral until the brand kit (handbook#6) lands. */
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --text: #1c1d21;
+  --muted: #5d606b;
+  --line: #dedfe3;
+  --accent: #5b3fd1;
+  --accent-text: #ffffff;
+  --radius: 10px;
+  --max: 46rem;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111215;
+    --surface: #1a1c21;
+    --text: #e8e9ec;
+    --muted: #a2a5b0;
+    --line: #2c2f37;
+    --accent: #a594ff;
+    --accent-text: #111215;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--accent); text-underline-offset: 0.15em; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 8px; background: var(--surface); padding: 6px 10px; z-index: 1; }
+
+.site-header { border-bottom: 1px solid var(--line); background: var(--surface); }
+.site-header .wrap { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: space-between; padding-block: 14px; }
+.wordmark { font-weight: 700; letter-spacing: 0.01em; color: var(--text); text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; }
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover, nav a[aria-current] { color: var(--text); }
+nav a.cta, .prose a[href^="https://discord.gg"] {
+  background: var(--accent); color: var(--accent-text); padding: 6px 14px; border-radius: 999px; text-decoration: none; font-weight: 600;
+}
+
+main.wrap { padding-top: 32px; padding-bottom: 48px; }
+.crumb { margin: 0 0 8px; font-size: 0.9rem; }
+.crumb a { color: var(--muted); }
+.prose h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 16px; }
+.prose h2 { font-size: 1.3rem; margin: 32px 0 8px; }
+.prose h3 { font-size: 1.1rem; margin: 24px 0 8px; }
+.prose code { font-size: 0.9em; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+.prose pre { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; overflow-x: auto; }
+.prose pre code { border: 0; padding: 0; white-space: pre-wrap; word-break: break-word; }
+.prose table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; font-size: 0.95rem; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+.prose th { color: var(--muted); font-weight: 600; }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+.home > p:first-of-type { font-size: 1.15rem; }
+.home a[href^="https://discord.gg"] { display: inline-block; margin: 4px 0 8px; padding: 10px 20px; }
+
+.cards { list-style: none; padding: 0; display: grid; gap: 10px; margin-top: 24px; }
+.cards li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; }
+.cards a { font-weight: 600; text-decoration: none; }
+.cards span { display: block; color: var(--muted); font-size: 0.95rem; }
+
+.site-footer { border-top: 1px solid var(--line); background: var(--surface); color: var(--muted); font-size: 0.85rem; }
+.site-footer .wrap { padding-block: 24px 32px; }
+.site-footer .links { margin-top: 0; }
+.site-footer a { color: var(--muted); }
+/* Every notice prints at the same size: CIG forbids showing its fan-site notice smaller than others. */
+.notices p { margin: 0 0 10px; font-size: inherit; }

@@ -1,0 +1,4 @@
+{{ define "main" }}
+{{- with .Parent }}{{ if not .IsHome }}<p class="crumb"><a href="{{ .RelPermalink }}">{{ partial "title.html" . }}</a></p>{{ end }}{{ end }}
+<article class="prose">{{ .Content }}</article>
+{{ end }}

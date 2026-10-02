@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="prose">
+  {{ .Content }}
+  {{- with .RegularPages.ByWeight }}
+  <ul class="cards">
+    {{- range . }}
+    <li><a href="{{ .RelPermalink }}">{{ partial "title.html" . }}</a>{{ with .Description }}<span>{{ . }}</span>{{ end }}</li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</article>
+{{ end }}

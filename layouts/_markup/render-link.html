@@ -1,0 +1,28 @@
+{{- /* Links in handbook pages are written for GitHub (relative .md paths). Resolve them to site pages;
+       anything the site doesn't publish links to the handbook on GitHub instead. A relative link in
+       the site's own content that doesn't resolve fails the build. */ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $href := .Destination -}}
+{{- $external := false -}}
+{{- if $u.IsAbs -}}
+  {{- $external = true -}}
+{{- else if and $u.Path (not (strings.HasPrefix $u.Path "/")) -}}
+  {{- $page := .PageInner -}}
+  {{- $fromHandbook := strings.Contains $page.File.Filename "/handbook" -}}
+  {{- $rel := strings.TrimPrefix "/" (path.Clean (path.Join $page.File.Dir $u.Path)) -}}
+  {{- $frag := cond (ne $u.Fragment "") (printf "#%s" $u.Fragment) "" -}}
+  {{- $key := strings.TrimSuffix "/_index" (strings.TrimSuffix ".md" $rel) -}}
+  {{- with site.GetPage (printf "/%s" $key) -}}
+    {{- $href = printf "%s%s" .RelPermalink $frag -}}
+  {{- else -}}
+    {{- if $fromHandbook -}}
+      {{- $kind := cond (strings.HasSuffix $u.Path ".md") "blob" "tree" -}}
+      {{- $href = printf "%s/%s/main/%s%s" site.Params.handbookRepo $kind $rel $frag -}}
+      {{- $external = true -}}
+    {{- else -}}
+      {{- errorf "%s: link %q does not resolve to a page" $page.File.Path .Destination -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<a href="{{ $href | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $external }} rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- /* chomp */ -}}
