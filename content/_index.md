@@ -21,4 +21,4 @@ up in **PUBG: BATTLEGROUNDS**, with more games to come.
 
 ## Our games
 
-See [the games we play](games.md) and how we play each one.
+{{< games >}}
