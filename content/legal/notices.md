@@ -30,7 +30,7 @@ Star Citizen®, Roberts Space Industries® and Cloud Imperium® are registered t
 Where it goes:
 
 - the site footer
-- the Star Citizen playbook (members-only, in Discord)
+- the Star Citizen playbook, pinned in `#sc-playbook` on Discord (members-only)
 - pinned in the Discord Star Citizen channels
 
 Source: [Fankit and Fandom FAQ](https://support.robertsspaceindustries.com/hc/en-us/articles/360006895793), "Fan Sites" and "Attribution and Credit".
@@ -62,7 +62,7 @@ Microsoft, Sea of Thieves and Xbox are trademarks of the Microsoft group of comp
 Where it goes:
 
 - this page, which every page of the site links to from its footer
-- the Sea of Thieves playbook (members-only, in Discord), with "This guide" as the title
+- the Sea of Thieves playbook in `#sot-playbook` on Discord (members-only), with "This guide" as the title
 - anything else that uses Sea of Thieves art, such as event graphics
 
 Sources: [Game Content Usage Rules](https://www.xbox.com/en-US/developers/rules); [Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks).
@@ -82,7 +82,7 @@ Inc. We copy the text as written and don't update it ourselves.
 Where it goes:
 
 - this page, which every page of the site links to from its footer
-- the PUBG playbook (members-only, in Discord)
+- the PUBG playbook in `#pubg-playbook` on Discord (members-only)
 - any page that shows PUBG API data
 
 Source: [PUBG Developer API Terms](https://developer.pubg.com/tos), "PUBG Community Qualification and Trademark Guidelines", Content and Use Guidelines item 8.
@@ -111,7 +111,7 @@ data (handbook#5).
 Where it goes:
 
 - this page, which every page of the site links to from its footer
-- the Counter-Strike 2 playbook (members-only, in Discord)
+- the Counter-Strike 2 playbook in `#cs-playbook` on Discord (members-only)
 
 Sources: [counter-strike.net](https://www.counter-strike.net) footer; [Steam Web API Terms of Use](https://steamcommunity.com/dev/apiterms) §3, §5, §9.
 
