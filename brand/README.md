@@ -1,7 +1,7 @@
 # brand
 
-Hidden Token Gaming's logo, colours and artwork: the mark, the lockups, the Discord server icon and
-the War Dogs server banner (#6).
+Hidden Token Gaming's logo, colours and artwork: the mark, the lockups, the link-preview card, the
+Discord server icon and the War Dogs server banner (#6).
 
 ![Hidden Token Gaming](logo/png/htg-lockup@2x.png)
 
@@ -33,6 +33,7 @@ game.
 | [`logo/htg-lockup-stacked.svg`](logo/htg-lockup-stacked.svg) | Mark above the wordmark, on dark backgrounds |
 | [`logo/htg-lockup-mono.svg`](logo/htg-lockup-mono.svg) | Side-by-side lockup in ink, for light backgrounds |
 | [`logo/png/`](logo/png/) | PNG renders: the mark at 1024 to 128 px, without glow at 64 and 32 px, one colour at 512 px in black and white, and each lockup at 2× |
+| [`social/og-image-1200x630.png`](social/og-image-1200x630.png) | The link-preview card (`og:image`): the main lockup on the dark ground, 1200×630. The site serves it on every page |
 | [`discord/server-icon-512.png`](discord/server-icon-512.png) | The Discord server icon |
 | [`wardogs/server-banner-1024x256.png`](wardogs/server-banner-1024x256.png) | The War Dogs server-browser banner (`ServerImageURL`) |
 

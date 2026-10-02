@@ -58,3 +58,4 @@ done < <(python3 -c 'import json,sys; [print(v["name"], v["colour"] or "-") for 
 
 render discord/server-icon.svg discord/server-icon-512.png 512 512
 render wardogs/server-banner.svg wardogs/server-banner-1024x256.png 1024 256
+render social/og-image.svg social/og-image-1200x630.png 1200 630

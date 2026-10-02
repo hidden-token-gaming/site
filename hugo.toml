@@ -49,6 +49,10 @@ disableKinds = ["taxonomy", "term", "rss"]
     target = "assets/brand"
     files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
   [[module.mounts]]
+    source = "brand/social"
+    target = "assets/brand/social"
+    files = ["og-image-1200x630.png"]
+  [[module.mounts]]
     source = "content"
     target = "content"
   [[module.mounts]]
