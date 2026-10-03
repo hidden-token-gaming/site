@@ -11,7 +11,7 @@
 #                (hidden-token-gaming/deploy, discord/mapping.md "Per-source invites")
 - name: Sea of Thieves
   steam_appid: 1172620
-  blurb: Crews of friends via Xbox friends and Closed Crew invites, HTG guilds, and Custom Seas for big events.
+  blurb: Crews of friends via Xbox friends and Closed Crew invites, and Custom Seas for big events.
   channel: sot-playbook
   invite: VfRbvzGJMq
 - name: Star Citizen
