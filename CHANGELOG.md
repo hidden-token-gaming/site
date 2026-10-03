@@ -21,6 +21,7 @@ All notable changes to the site are documented here. The format follows
 
 ### Changed
 
+- The Sea of Thieves card no longer mentions HTG guilds: HTG founds its own guild once there are members to fill it (L2), as the Discord playbook says (hidden-token-gaming/deploy#27).
 - Each game card links to Discord with the game's own invite ("Join on Discord (18+)", then its playbook channel), and the join page uses the site's own invite, so Discord's invite counts show where members come from. The cards linking Discord directly reverses the earlier join-page-only rule (John, 2026-10-03). The codes and where each is posted are in hidden-token-gaming/deploy `discord/mapping.md` (hidden-token-gaming/deploy#30).
 - The join page says Discord accounts less than 3 days old can't join yet and when to come back, since Wick's join gate kicks them (hidden-token-gaming/deploy, `discord/mapping.md`).
 - The notices page names the Discord channel each playbook notice is posted in (`#sc-playbook`, where it's pinned, `#sot-playbook`, `#pubg-playbook`, `#cs-playbook`), now that the playbooks are live there (hidden-token-gaming/deploy#20).
