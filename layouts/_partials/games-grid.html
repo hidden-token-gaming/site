@@ -48,8 +48,13 @@
     {{- end }}
     <h3>{{ .name }}</h3>
     <p>{{ .blurb }}</p>
+    {{- if .invite }}
+    <p class="join"><a href="https://discord.gg/{{ .invite }}">Join on Discord (18+)</a></p>
     {{- with .channel }}
-    <p class="channel">Members: <code>#{{ . }}</code> on Discord</p>
+    <p class="channel">Then read <code>#{{ . }}</code></p>
+    {{- end }}
+    {{- else if .channel }}
+    <p class="channel">Members: <code>#{{ .channel }}</code> on Discord</p>
     {{- end }}
   </li>
   {{- end }}

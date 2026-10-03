@@ -69,6 +69,10 @@ main.wrap { padding-top: 32px; padding-bottom: 48px; }
 .prose .games h3 { margin: 12px 14px 4px; font-size: 1.05rem; }
 .prose .games p { margin: 0 14px 12px; color: var(--muted); font-size: 0.95rem; line-height: 1.5; }
 .prose .games p.channel { margin-top: auto; font-size: 0.85rem; }
+/* A card's own invite (data/games.yaml): the button sits at the bottom, the playbook channel under it. */
+.prose .games p.join { margin-top: auto; margin-bottom: 6px; }
+.prose .games p.join + p.channel { margin-top: 0; }
+.prose .games p.channel code { white-space: nowrap; }
 .games-credit { font-size: 0.8rem; color: var(--muted); }
 
 .site-footer { border-top: 1px solid var(--line); background: var(--surface); color: var(--muted); font-size: 0.85rem; }
