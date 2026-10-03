@@ -21,6 +21,8 @@ All notable changes to the site are documented here. The format follows
 
 ### Changed
 
+- Dependabot bundles all GitHub Actions bumps into one weekly PR, and labels it `component:ci` as well as `no-changelog`, since the labeler skips Dependabot PRs.
+
 - HTG's one-liner, "Your hidden token to always having a game to play. Variety gaming for adults who play fair. 18+.", is now the site description (meta tags and link previews) and opens the home page. The brand README records it as the line to use wherever one line is shown (hidden-token-gaming/deploy#32).
 - The Sea of Thieves card no longer mentions HTG guilds: HTG founds its own guild once there are members to fill it (L2), as the Discord playbook says (hidden-token-gaming/deploy#27).
 - Each game card links to Discord with the game's own invite ("Join on Discord (18+)", then its playbook channel), and the join page uses the site's own invite, so Discord's invite counts show where members come from. The cards linking Discord directly reverses the earlier join-page-only rule (John, 2026-10-03). The codes and where each is posted are in hidden-token-gaming/deploy `discord/mapping.md` (hidden-token-gaming/deploy#30).
