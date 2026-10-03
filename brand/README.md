@@ -14,6 +14,15 @@ always have a game to play.
 The mark is two arcade tokens, with the second one hidden behind the first. There's always another
 game.
 
+## The one-liner
+
+> Your hidden token to always having a game to play. Variety gaming for adults who play fair. 18+.
+
+HTG's description wherever one line is shown: the Discord server description (invites and
+Discovery), the site's meta and link-preview description, the GitHub org, listing sites, and the
+Steam, RSI and Twitch pages. Use it word for word. It names no games, so it doesn't change when the
+line-up does (John, 2026-10-03). Discord allows 120 characters; this is 96.
+
 ## The mark
 
 - Two chrome tokens, struck like real coins: a raised rim, raised beads and a star stamped into the

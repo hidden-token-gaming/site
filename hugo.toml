@@ -5,7 +5,7 @@ enableRobotsTXT = true
 disableKinds = ["taxonomy", "term", "rss"]
 
 [params]
-  description = "A variety gaming community: Sea of Thieves, Star Citizen, War Dogs, Counter-Strike 2 and PUBG: BATTLEGROUNDS."
+  description = "Your hidden token to always having a game to play. Variety gaming for adults who play fair. 18+."
   sourceRepo = "https://github.com/hidden-token-gaming/site"
 
 [markup.goldmark.parser]

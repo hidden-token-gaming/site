@@ -4,9 +4,10 @@ title: Hidden Token Gaming
 
 # Hidden Token Gaming
 
-A variety gaming community for adults who like to play together. We crew up in **Sea of Thieves**,
-fly ops in **Star Citizen**, seed our **War Dogs** server, run **Counter-Strike 2** PUGs and squad
-up in **PUBG: BATTLEGROUNDS**, with more games to come.
+Your hidden token to always having a game to play. Variety gaming for adults who play fair. 18+.
+
+We crew up in **Sea of Thieves**, fly ops in **Star Citizen**, seed our **War Dogs** server, run
+**Counter-Strike 2** PUGs and squad up in **PUBG: BATTLEGROUNDS**, with more games to come.
 
 [Join us](join.md)
 
