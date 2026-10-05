@@ -27,6 +27,10 @@ disableKinds = ["taxonomy", "term", "rss"]
   name = "Rules"
   pageRef = "/policy"
   weight = 20
+[[menus.main]]
+  name = "About"
+  pageRef = "/about"
+  weight = 30
 # Join is the header's way into the Discord: the join page carries the age limit and the rules.
 # Game cards also link it, each with its own invite (data/games.yaml).
 [[menus.main]]
