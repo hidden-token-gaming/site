@@ -21,6 +21,7 @@ All notable changes to the site are documented here. The format follows
 
 ### Changed
 
+- The privacy policy and terms name their controller: MKZ Systems LLC, a Texas limited liability company, with `privacy@hiddentoken.com` as the privacy contact (an interim choice while counsel reviews; both stay drafts, pending legal review). Whether a postal address is needed is left as an open question (hidden-token-gaming/handbook#32).
 - Dependabot bundles all GitHub Actions bumps into one weekly PR, and labels it `component:ci` as well as `no-changelog`, since the labeler skips Dependabot PRs.
 
 - HTG's one-liner, "Your hidden token to always having a game to play. Variety gaming for adults who play fair. 18+.", is now the site description (meta tags and link previews) and opens the home page. The brand README records it as the line to use wherever one line is shown (hidden-token-gaming/deploy#32).

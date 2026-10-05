@@ -3,10 +3,10 @@
 > **Draft, pending legal review.** Not yet in effect. Items in *[brackets]* are open questions for
 > counsel.
 
-**Last updated:** 2026-10-02
+**Last updated:** 2026-10-05
 
-These terms are the agreement between you and Hidden Token Gaming ("HTG", "we"), run by *[legal
-entity: to be decided (plan D5)]*. They cover everything HTG runs:
+These terms are the agreement between you and Hidden Token Gaming ("HTG", "we"), run by MKZ Systems LLC, a
+Texas limited liability company. They cover everything HTG runs:
 
 - the website;
 - the HTG Discord server and the HTG Bot;
