@@ -95,4 +95,4 @@ in Discord before it takes effect. If you keep using HTG after that, you accept 
 
 ## 13. Contact
 
-Questions about these terms: a `#support` ticket, or *[contact address]*.
+Questions about these terms: a `#support` ticket, or [privacy@hiddentoken.com](mailto:privacy@hiddentoken.com).
