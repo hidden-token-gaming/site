@@ -3,14 +3,15 @@
 > **Draft, pending legal review.** Not yet in effect. Items in *[brackets]* are open questions for
 > counsel.
 
-**Last updated:** 2026-10-02
+**Last updated:** 2026-10-05
 
 Hidden Token Gaming ("HTG", "we") is a gaming community for adults. This policy explains what
 information about you HTG handles, why, who else sees it, how long we keep it and what you can ask
 us to do with it.
 
-HTG is run by *[legal entity, address: to be decided (plan D5)]*, which decides how your
-information is used (the "controller"). Contact: *[privacy contact address]*.
+HTG is run by **MKZ Systems LLC**, a Texas limited liability company, which decides how your
+information is used (the "controller"). Contact: [privacy@hiddentoken.com](mailto:privacy@hiddentoken.com).
+*[Interim, pending legal review: whether a postal address is needed.]*
 
 ## The short version
 
@@ -195,7 +196,7 @@ You can:
 - **object** to how we use your information, or ask us to restrict it;
 - **complain** to your local data protection authority, if you have one.
 
-Ask in a `#support` ticket or by email to *[privacy contact address]*. We'll confirm it's really you
+Ask in a `#support` ticket or by email to [privacy@hiddentoken.com](mailto:privacy@hiddentoken.com). We'll confirm it's really you
 through your Discord account, and answer within 30 days.
 
 **Do Not Track:** the site doesn't track you, so there is nothing for a Do Not Track signal to
