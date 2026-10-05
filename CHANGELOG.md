@@ -21,6 +21,7 @@ All notable changes to the site are documented here. The format follows
 
 ### Changed
 
+- The terms' contact (section 13) is `privacy@hiddentoken.com`, as well as a `#support` ticket (the owner, 2026-10-05; hidden-token-gaming/handbook#32).
 - The privacy policy and terms name their controller: MKZ Systems LLC, a Texas limited liability company, with `privacy@hiddentoken.com` as the privacy contact (an interim choice while counsel reviews; both stay drafts, pending legal review). Whether a postal address is needed is left as an open question (hidden-token-gaming/handbook#32).
 - Dependabot bundles all GitHub Actions bumps into one weekly PR, and labels it `component:ci` as well as `no-changelog`, since the labeler skips Dependabot PRs.
 
