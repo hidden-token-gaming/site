@@ -1,0 +1,5 @@
+{{- /* The Games page. Its content carries the grid (the games shortcode), so the game pages aren't
+       listed again under it, as list.html would. */ -}}
+{{ define "main" }}
+<article class="prose">{{ .Content }}</article>
+{{ end }}

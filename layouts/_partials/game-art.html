@@ -1,0 +1,39 @@
+{{- /* A game's card art, as a resource, or false for a game with none (the card then shows the
+       HTG mark). The art is the game's own image from assets/games/ when it has one, else its
+       Steam library hero, which has no logo. Newer games keep their art at hashed URLs, so the
+       store API (IStoreBrowseService, no key needed) is asked where it is. The query always names
+       every game in data/games.yaml, so Hugo fetches it once per build however many pages ask.
+       Everything is fetched at build time and served from this site, so the CSP stays
+       img-src 'self'. A failed fetch fails the build rather than shipping a broken card. */ -}}
+{{- $g := . -}}
+{{- $art := false -}}
+{{- with $g.image -}}
+  {{- $art = resources.Get (printf "games/%s" .) -}}
+  {{- if not $art }}{{ errorf "games: assets/games/%s is missing" . }}{{ end -}}
+{{- else -}}
+  {{- with $g.steam_appid -}}
+    {{- $appid := . -}}
+    {{- $ids := slice -}}
+    {{- range hugo.Data.games }}{{ with .steam_appid }}{{ $ids = $ids | append (dict "appid" .) }}{{ end }}{{ end -}}
+    {{- $q := dict "ids" $ids "context" (dict "language" "english" "country_code" "US") "data_request" (dict "include_assets" true) | jsonify -}}
+    {{- $api := printf "https://api.steampowered.com/IStoreBrowseService/GetItems/v1/?input_json=%s" ($q | urlquery) -}}
+    {{- $url := "" -}}
+    {{- with try (resources.GetRemote $api) -}}
+      {{- with .Err }}{{ errorf "games: Steam store API: %s" . }}{{ end -}}
+      {{- with .Value -}}
+        {{- range (. | transform.Unmarshal).response.store_items -}}
+          {{- if and (eq (string .appid) (string $appid)) .assets .assets.library_hero -}}
+            {{- $url = printf "https://shared.akamai.steamstatic.com/store_item_assets/%s" (replace .assets.asset_url_format "${FILENAME}" .assets.library_hero) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if not $url }}{{ errorf "games: Steam has no library hero for %s (app %v)" $g.name $appid }}{{ end -}}
+    {{- with try (resources.GetRemote $url) -}}
+      {{- with .Err }}{{ errorf "games: %s: %s" $url . }}{{ end -}}
+      {{- $art = .Value -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- with $art }}{{ $art = . | resources.Copy (printf "games/%s%s" (urlize $g.name) (path.Ext .Name)) }}{{ end -}}
+{{- return $art -}}

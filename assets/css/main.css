@@ -74,6 +74,12 @@ main.wrap { padding-top: 32px; padding-bottom: 48px; }
 .prose .games p.join + p.channel { margin-top: 0; }
 .prose .games p.channel code { white-space: nowrap; }
 .games-credit { font-size: 0.8rem; color: var(--muted); }
+.prose .games h3 a { color: var(--link); text-decoration: none; }
+.prose .games h3 a:hover { text-decoration: underline; }
+/* A game's page (layouts/games/single.html): its card art, then the game's own invite. */
+.game-art { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--line); margin: 0 0 16px; }
+.game-join { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; }
+.game-join span { color: var(--muted); font-size: 0.95rem; }
 
 .site-footer { border-top: 1px solid var(--line); background: var(--surface); color: var(--muted); font-size: 0.85rem; }
 .site-footer .wrap { padding-block: 24px 32px; }

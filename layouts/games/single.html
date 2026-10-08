@@ -1,0 +1,26 @@
+{{- /* A game's page (content/games/<slug>.md). Its name, art, invite and playbook channel come from
+       the data/games.yaml entry whose page is <slug>, so a game's invite lives in one place. */ -}}
+{{ define "main" }}
+{{- $slug := .File.ContentBaseName -}}
+{{- $g := false -}}
+{{- range hugo.Data.games }}{{ if eq .page $slug }}{{ $g = . }}{{ end }}{{ end -}}
+{{- if not $g }}{{ errorf "%s: no game in data/games.yaml has page: %s" .File.Path $slug }}{{ end -}}
+{{- if not $g.invite }}{{ errorf "%s: %s has no invite in data/games.yaml" .File.Path $g.name }}{{ end -}}
+{{- with .Parent }}<p class="crumb"><a href="{{ .RelPermalink }}">{{ partial "title.html" . }}</a></p>{{ end }}
+<article class="prose game">
+  <h1>{{ $g.name }}</h1>
+  {{- $art := partialCached "game-art.html" $g $g.name -}}
+  {{- with $art }}
+  {{- $anchor := $g.anchor | default "smart" -}}
+  {{- $one := .Process (printf "fill 736x368 %s jpg q80" $anchor) -}}
+  {{- $two := .Process (printf "fill 1472x736 %s jpg q78" $anchor) }}
+  <img class="game-art" src="{{ $one.RelPermalink }}" srcset="{{ $one.RelPermalink }} 1x, {{ $two.RelPermalink }} 2x" width="736" height="368" alt="">
+  {{- end }}
+  <p class="game-join"><a href="https://discord.gg/{{ $g.invite }}">Join on Discord (18+)</a>{{ with $g.channel }} <span>then read <code>#{{ . }}</code></span>{{ end }}</p>
+  {{ .Content }}
+  <p class="game-join"><a href="https://discord.gg/{{ $g.invite }}">Join on Discord (18+)</a></p>
+  {{- if $art }}
+  <p class="games-credit">Game art from the game's Steam page. The game and its art belong to its publisher; see the <a href="{{ "/legal/notices/" | relURL }}#trademark-notices">trademark notices</a>.</p>
+  {{- end }}
+</article>
+{{ end }}
