@@ -16,4 +16,4 @@ description: How to join Hidden Token Gaming.
 5. **Find people and play.** Each game's playbook, at the top of its category on Discord, shows
    how to end up in the same game as everyone else.
 
-Questions? Open a ticket in `#support` on Discord.
+Questions? Read the [FAQ](faq.md), or open a ticket in `#support` on Discord.
