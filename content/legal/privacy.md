@@ -3,7 +3,7 @@
 > **Draft, pending legal review.** Not yet in effect. Items in *[brackets]* are open questions for
 > counsel.
 
-**Last updated:** 2026-10-05
+**Last updated:** 2026-10-08
 
 Hidden Token Gaming ("HTG", "we") is a gaming community for adults. This policy explains what
 information about you HTG handles, why, who else sees it, how long we keep it and what you can ask
@@ -60,8 +60,12 @@ HTG keeps its own copies of only:
   username, the rule, what happened, the staff member, and the date. They sit in a private staff
   channel and are used to apply the [moderation ladder](../policy/moderation.md) and handle
   appeals;
-- **server audits:** counts of members per role, used to manage the server's structure. They name
-  no members.
+- **server audits:** a weekly snapshot of the server's structure and its numbers: how many
+  members it has, in total and per role, how many joined in the past week, and how many messages
+  were posted in each channel in the past week and by how many people. To count those, the HTG
+  Bot sees which account posted each message, and keeps only the totals. Audits name no members
+  and hold no member IDs or message content. They're used to manage the server's structure and to see
+  whether the community is growing. Staff and ticket channels aren't counted.
 
 Anything the HTG Bot or HTG's apps get from Discord is used only for the HTG features described
 here. It is never sold, never shared beyond the providers below, never used to profile you, and
@@ -139,6 +143,7 @@ them won't work for you.
 | Stats, leaderboards and recognition | Game activity tied to linked identities | Your consent when you link; you can withdraw it |
 | Supporter perks | Patreon tier and status | Providing the perks (contract) |
 | Answer support requests and appeals | What you send us | Legitimate interest; contract |
+| Manage the server and see whether the community is growing | Server audits: totals only, no names, IDs or message content | Legitimate interest in running the community |
 
 We don't use your information for advertising, we don't sell or rent it, and we don't use it to
 build profiles beyond what is described here. We don't make automated decisions with legal or
@@ -175,6 +180,7 @@ States, your information is transferred there. *[Transfer safeguards to confirm 
 
 | Information | How long |
 |---|---|
+| Server audits | Kept; they hold only totals, nothing about any one member |
 | Moderation records | While they count toward the ladder, and for as long as a ban lasts. *[Period after a ban ends: for counsel]* |
 | Ticket transcripts (in HTG's staff channel) and appeal emails | *[Proposed: 12 months after the ticket or appeal closes, then deleted]* |
 | Your HTG account and linked identities (planned) | Until you delete them or unlink |

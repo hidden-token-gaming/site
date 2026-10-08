@@ -24,6 +24,7 @@ All notable changes to the site are documented here. The format follows
 
 ### Changed
 
+- The privacy policy's "server audits" line now says what the weekly audit counts since hidden-token-gaming/deploy#87: members in total and per role, joins in the past week, and messages per channel in the past week and how many people posted them. The bot sees who posted each message and keeps only the totals, with no member IDs or content, and staff and ticket channels aren't counted. A purpose row and a retention row cover audits too (draft, pending the owner's approval and legal review).
 - The terms' contact (section 13) is `privacy@hiddentoken.com`, as well as a `#support` ticket (the owner, 2026-10-05; hidden-token-gaming/handbook#32).
 - The privacy policy and terms name their controller: MKZ Systems LLC, a Texas limited liability company, with `privacy@hiddentoken.com` as the privacy contact (an interim choice while counsel reviews; both stay drafts, pending legal review). Whether a postal address is needed is left as an open question (hidden-token-gaming/handbook#32).
 - Dependabot bundles all GitHub Actions bumps into one weekly PR, and labels it `component:ci` as well as `no-changelog`, since the labeler skips Dependabot PRs.
