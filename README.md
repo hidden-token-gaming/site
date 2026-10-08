@@ -34,6 +34,12 @@ The brand kit's SVGs and PNGs are generated: change `brand/tools/build.py`, neve
   card image is `brand/social/og-image-1200x630.png`, generated like the other brand files, and the
   build fails if it's missing. A page's `description` front matter feeds the preview, falling back
   to the site's.
+- **Games:** `data/games.yaml` lists the games in grid order with each one's art source, blurb,
+  playbook channel, invite and page. The grid (`layouts/_partials/games-grid.html`) and each game's
+  page (`content/games/<page>.md`, laid out by `layouts/games/single.html`) take the name, art and
+  invite from there, so a game's invite lives in one place. Art is fetched from Steam at build time
+  (`layouts/_partials/game-art.html`). The build fails if a game's page and its entry don't match,
+  if a game with a page has no invite, or if art can't be fetched.
 - **No third-party anything:** no scripts, fonts, analytics or game logos. `static/_headers` sets a
   strict CSP.
 

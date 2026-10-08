@@ -9,28 +9,35 @@
 #   channel:     the members' playbook channel on Discord
 #   invite:      the game's own Discord invite code, so its uses show which game brings people in
 #                (hidden-token-gaming/deploy, discord/mapping.md "Per-source invites")
+#   page:        the game's page, content/games/<page>.md; the card links to it, and the page
+#                takes its name, art and invite from here
 - name: Sea of Thieves
   steam_appid: 1172620
   blurb: Crews of friends via Xbox friends and Closed Crew invites, and Custom Seas for big events.
   channel: sot-playbook
+  page: sea-of-thieves
   invite: VfRbvzGJMq
 - name: Star Citizen
   blurb: Organised ops. Sign up for a seat, party at the main menu, launch together.
   channel: sc-playbook
+  page: star-citizen
   invite: F4R5GJnfdf
 - name: WARDOGS
   steam_appid: 1867240
   blurb: "The HTG community server, HTG WARDOGS | NA WEST | #1. Matches start at 20 players, so seeding matters."
   channel: wd-playbook
+  page: wardogs
   invite: trNWDtB6gE
 - name: Counter-Strike 2
   steam_appid: 730
   anchor: right
   blurb: Ten-player PUGs organised in Discord. HTG's own community servers are on the way.
   channel: cs-playbook
+  page: counter-strike-2
   invite: NJa9ZYn7mn
 - name: "PUBG: BATTLEGROUNDS"
   steam_appid: 578080
   blurb: Duo and squad play, and custom matches for events.
   channel: pubg-playbook
+  page: pubg
   invite: 2K4jbBjuB7

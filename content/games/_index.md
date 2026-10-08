@@ -10,4 +10,4 @@ category on Discord.
 
 {{< games >}}
 
-Every game's own rules apply on top of ours. See [publisher rules](legal/publisher-rules.md).
+Every game's own rules apply on top of ours. See [publisher rules](../legal/publisher-rules.md).

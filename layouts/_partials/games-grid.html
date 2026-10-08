@@ -1,52 +1,24 @@
-{{- /* The games grid, from data/games.yaml. Art is each game's Steam library hero, which has no
-       logo. Newer games keep their art at hashed URLs, so the store API (IStoreBrowseService,
-       no key needed) is asked where it is, once for all games. Everything is fetched at build time
-       and served from this site, so the CSP stays img-src 'self'. A failed fetch fails the build
-       rather than shipping a broken card. */ -}}
-{{- $games := hugo.Data.games -}}
-{{- $ids := slice -}}
-{{- range $games }}{{ with .steam_appid }}{{ $ids = $ids | append (dict "appid" .) }}{{ end }}{{ end -}}
-{{- $assets := dict -}}
-{{- if $ids -}}
-  {{- $q := dict "ids" $ids "context" (dict "language" "english" "country_code" "US") "data_request" (dict "include_assets" true) | jsonify -}}
-  {{- $api := printf "https://api.steampowered.com/IStoreBrowseService/GetItems/v1/?input_json=%s" ($q | urlquery) -}}
-  {{- with try (resources.GetRemote $api) -}}
-    {{- with .Err }}{{ errorf "games grid: Steam store API: %s" . }}{{ end -}}
-    {{- with .Value -}}
-      {{- range (. | transform.Unmarshal).response.store_items -}}
-        {{- if and .assets .assets.library_hero -}}
-          {{- $path := replace .assets.asset_url_format "${FILENAME}" .assets.library_hero -}}
-          {{- $assets = merge $assets (dict (string .appid) (printf "https://shared.akamai.steamstatic.com/store_item_assets/%s" $path)) -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
+{{- /* The games grid, from data/games.yaml. Card art comes from game-art.html. A game with a page
+       (content/games/<page>.md) links its name to it. */ -}}
 <ul class="games">
-  {{- range $g := $games }}
-  {{- $art := false -}}
-  {{- with .image }}{{ $art = resources.Get (printf "games/%s" .) }}{{ if not $art }}{{ errorf "games grid: assets/games/%s is missing" . }}{{ end }}{{ end -}}
-  {{- if and (not $art) .steam_appid -}}
-    {{- $url := index $assets (string .steam_appid) -}}
-    {{- if not $url }}{{ errorf "games grid: Steam has no library hero for %s (app %v)" .name .steam_appid }}{{ end -}}
-    {{- with try (resources.GetRemote $url) -}}
-      {{- with .Err }}{{ errorf "games grid: %s: %s" $url . }}{{ end -}}
-      {{- $art = .Value -}}
-    {{- end -}}
+  {{- range $g := hugo.Data.games }}
+  {{- $page := false -}}
+  {{- with .page -}}
+    {{- $page = site.GetPage (printf "/games/%s" .) -}}
+    {{- if not $page }}{{ errorf "games grid: %s has page %q, but content/games/%s.md is missing" $g.name . . }}{{ end -}}
   {{- end }}
   <li>
-    {{- with $art }}
-    {{- $src := . | resources.Copy (printf "games/%s%s" (urlize $g.name) (path.Ext .Name)) -}}
+    {{- with partialCached "game-art.html" $g $g.name }}
     {{- $anchor := $g.anchor | default "smart" -}}
-    {{- $one := $src.Process (printf "fill 640x320 %s jpg q80" $anchor) -}}
-    {{- $two := $src.Process (printf "fill 1280x640 %s jpg q78" $anchor) }}
+    {{- $one := .Process (printf "fill 640x320 %s jpg q80" $anchor) -}}
+    {{- $two := .Process (printf "fill 1280x640 %s jpg q78" $anchor) }}
     <img src="{{ $one.RelPermalink }}" srcset="{{ $one.RelPermalink }} 1x, {{ $two.RelPermalink }} 2x" width="640" height="320" alt="" loading="lazy" decoding="async">
     {{- else }}
     {{- with resources.Get "brand/htg-mark-noglow.svg" | fingerprint }}
     <span class="no-art"><img src="{{ .RelPermalink }}" alt="" width="72" height="72"></span>
     {{- end }}
     {{- end }}
-    <h3>{{ .name }}</h3>
+    <h3>{{ with $page }}<a href="{{ .RelPermalink }}">{{ $g.name }}</a>{{ else }}{{ .name }}{{ end }}</h3>
     <p>{{ .blurb }}</p>
     {{- if .invite }}
     <p class="join"><a href="https://discord.gg/{{ .invite }}">Join on Discord (18+)</a></p>
