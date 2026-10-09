@@ -56,14 +56,14 @@ disableKinds = ["taxonomy", "term", "rss"]
   [[module.mounts]]
     source = "brand/logo"
     target = "assets/brand"
-    files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
+    files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "htg-mark-auto.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
   [[module.mounts]]
     # The same mark files once more at stable paths (/brand/htg-mark-noglow.svg, ...): the hub on
     # app.hiddentoken.com loads its logo and favicon from the site, and a fingerprinted name would
     # change under it. The pages keep using the fingerprinted copies from the assets mount above.
     source = "brand/logo"
     target = "static/brand"
-    files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
+    files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "htg-mark-auto.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
   [[module.mounts]]
     source = "brand/social"
     target = "assets/brand/social"
