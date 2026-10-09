@@ -29,7 +29,10 @@ The brand kit's SVGs and PNGs are generated: change `brand/tools/build.py`, neve
 - **The footer** is the "Site footer" block of `content/legal/notices.md`, so the publisher
   notices have one source. The build fails if the block or the Star Citizen notice is missing.
 - **Brand colours and mark files** are mounted from `brand/` (`hugo.toml`), so a brand change is
-  one PR here.
+  one PR here. The mark is also published at stable paths (`/brand/htg-mark-noglow.svg`,
+  `/brand/htg-mark-mono.svg`, `/brand/png/htg-mark-noglow-32.png`, `/brand/png/htg-mark-256.png`)
+  because the hub on app.hiddentoken.com loads its logo and favicon from the site; the pages
+  themselves use the fingerprinted copies.
 - **Link previews:** every page has Open Graph and Twitter-card tags (`layouts/baseof.html`). The
   card image is `brand/social/og-image-1200x630.png`, generated like the other brand files, and the
   build fails if it's missing. A page's `description` front matter feeds the preview, falling back
