@@ -15,6 +15,7 @@ All mark geometry is in a 0-100 box. Light comes from the top left.
 import json
 import math
 import pathlib
+import re
 
 import uharfbuzz as hb
 from fontTools.pens.svgPathPen import SVGPathPen
@@ -25,13 +26,14 @@ from fontTools.varLib.instancer import instantiateVariableFont
 BRAND = pathlib.Path(__file__).resolve().parent.parent
 FONT = BRAND / "fonts" / "Archivo[wdth,wght].ttf"
 
-# Palette. tokens.json and tokens.css carry the same values.
-GROUND = "#070b17"
-INK = "#0b1222"
-MUTED = "#93a3bb"
-GREEN = "#3ee07a"
-BLUE = "#3d8bff"
-PURPLE = "#8a63f5"
+# Palette, from tokens.json (tokens.css carries the same values).
+TOKENS = json.loads((BRAND / "tokens.json").read_text())
+GROUND = TOKENS["dark"]["ground"]
+INK = TOKENS["light"]["text"]  # the light theme's text colour: one-colour marks on light grounds
+MUTED = TOKENS["dark"]["muted"]
+GREEN = TOKENS["accents"]["green"]["value"]
+BLUE = TOKENS["accents"]["blue"]["value"]
+PURPLE = TOKENS["accents"]["purple"]["value"]
 
 CHROME = [(0, "#ffffff"), (0.38, "#dfe6ee"), (0.5, "#7d8ca6"), (0.62, "#c9d3de"), (1, "#f4f7fb")]
 # The glow runs at the chrome's angle, with a wide blue band.
@@ -180,6 +182,23 @@ def flat_coin(with_star):
 def mark_flat():
     """One colour, inherited from the element's fill. Cut-outs instead of shading, a gap instead of a shadow."""
     return (place(BACK, flat_coin(False), ' mask="url(#htg-flat-gap)"') + "\n" + place(FRONT, flat_coin(True)))
+
+
+# ---------------------------------------------------------------- the scheme-aware mark
+
+def mark_auto():
+    """The full-colour mark, and the one-colour mark in ink under prefers-color-scheme: light.
+
+    For a page that can show only one file in both schemes, such as the hub's logo and favicon.
+    The switch is an internal <style>, which browsers apply when the SVG is an image or a favicon.
+    The ink is a fixed colour, the light theme's text: currentColor is black inside an <img>.
+    Returns (body, defs).
+    """
+    style = ("<style>.htg-auto-mono{display:none}"
+             "@media (prefers-color-scheme:light){.htg-auto-chrome{display:none}.htg-auto-mono{display:inline}}</style>")
+    body = (f'<g class="htg-auto-chrome">\n{mark_full(False)}\n</g>\n'
+            f'<g class="htg-auto-mono" fill="{INK}">\n{mark_flat()}\n</g>')
+    return body, style + "\n" + mark_defs() + "\n" + mark_flat_defs()
 
 
 # ---------------------------------------------------------------- one-colour variations
@@ -395,6 +414,9 @@ def wordmark(x, top, size, chrome=True, ink=INK, muted=MUTED, rule_on=True, gid=
 # ---------------------------------------------------------------- files
 
 def svg(path, w, h, body, defs="", view=None, extra=""):
+    ids = re.findall(r'\bid="([^"]+)"', defs + body)
+    dupes = sorted({i for i in ids if ids.count(i) > 1})
+    assert not dupes, f"{path}: duplicate ids {dupes}"
     vb = view or f"0 0 {f(w)} {f(h)}"
     doc = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{f(w)}" height="{f(h)}" viewBox="{vb}"{extra}>\n'
            f'<defs>\n{defs}\n</defs>\n{body}\n</svg>\n')
@@ -410,6 +432,9 @@ def main():
     svg("logo/htg-mark.svg", 128, 128, title + mark_full(True), mark_defs(), view="-14 -14 128 128")
     svg("logo/htg-mark-noglow.svg", 100, 100, title + mark_full(False), mark_defs())
     svg("logo/htg-mark-mono.svg", 100, 100, title + f'<g fill="currentColor">{mark_flat()}</g>', mark_flat_defs())
+    # Both in one file, switched by the colour scheme, for the hub's logo and favicon.
+    body, defs = mark_auto()
+    svg("logo/htg-mark-auto.svg", 100, 100, title + body, defs)
     # One-colour variations: the same mark with another emblem on the front token. The manifest
     # tells render.sh which colour each one is rendered in.
     manifest = []
