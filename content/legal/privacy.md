@@ -3,7 +3,7 @@
 > **Draft, pending legal review.** Not yet in effect. Items in *[brackets]* are open questions for
 > counsel.
 
-**Last updated:** 2026-10-08
+**Last updated:** 2026-10-09
 
 Hidden Token Gaming ("HTG", "we") is a gaming community for adults. This policy explains what
 information about you HTG handles, why, who else sees it, how long we keep it and what you can ask
@@ -15,8 +15,8 @@ information is used (the "controller"). Contact: [privacy@hiddentoken.com](mailt
 
 ## The short version
 
-- **We collect as little as we can.** Today that is almost nothing beyond what Discord already
-  shows to everyone in the server.
+- **We collect as little as we can.** Today that is little beyond what Discord already shows to
+  everyone in the server, plus the account you create if you sign in on app.hiddentoken.com.
 - **We never sell your information,** and we don't show ads or use trackers.
 - **Public profiles are opt-in.** Until you choose a display name, any stats about you appear
   under a pseudonym.
@@ -30,7 +30,8 @@ information is used (the "controller"). Contact: [privacy@hiddentoken.com](mailt
 | The HTG Discord server and the HTG Bot | Live |
 | Game servers HTG runs or rents (today one War Dogs server) | Live |
 | Support tickets and appeals | Live |
-| app.hiddentoken.com: accounts, linked game identities, stats, leaderboards and Muster (crew-up sessions) | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
+| app.hiddentoken.com: your HTG account, signing in with Discord and linking your Steam account | Live |
+| app.hiddentoken.com: stats, leaderboards, further linked identities (Xbox, Star Citizen, PUBG) and Muster (crew-up sessions) | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
 | Supporters (Patreon) | **Planned** |
 
 Discord, Steam, Xbox, Roberts Space Industries, KRAFTON, Patreon and the game publishers have
@@ -79,6 +80,30 @@ deleted when it's no longer needed or when you ask.
 - **Ban appeals** are sent by email to [appeals@hiddentoken.com](mailto:appeals@hiddentoken.com), hosted by Proton in Switzerland.
   We use what you send only to decide your appeal.
 
+### Your HTG account (app.hiddentoken.com)
+
+You don't need an account to be a member; it exists so HTG can tie game stats, sessions and
+recognition to you later, and only if you choose to link things. If you sign in:
+
+- **Signing in with Discord** gives HTG your Discord user ID, your username and display name, and
+  your avatar. We store those three and read nothing else from Discord (the sign-in asks Discord
+  for your identity only, not your email, connections or servers).
+- **Linking Steam** proves which Steam account is yours through Steam's sign-in; HTG stores your
+  SteamID and, from Steam's public profile data (the Steam Web API), your persona name and avatar.
+  We read no achievements or play history yet; that is planned below. You can unlink Steam at
+  any time on your account page.
+- **Staying signed in** uses one cookie on app.hiddentoken.com that identifies your session and
+  nothing else. It is strictly necessary for the account to work, carries no tracking, and lasts
+  30 days or until you log out. "Log out everywhere" ends every session you have.
+- **A log of sign-ins, links and unlinks** with their dates, kept so you and HTG can see what
+  happened to your account. HTG does not store the IP address or browser you sign in from. To
+  protect the site from abuse, the number of requests from an address is counted briefly in
+  memory and never written down.
+
+The profile details are refreshed each time you sign in or link, so what the account page shows
+is what Discord or Steam currently shows. HTG shows your display name only to you until public
+profiles exist (planned).
+
 ### Game servers
 
 While you play on HTG's War Dogs server, HTG staff can see your in-game name, SteamID, team,
@@ -92,11 +117,10 @@ are kicked or banned on the server.
 This section describes the design. It takes effect only when these features launch, and we will
 update it and announce the change first.
 
-- **Your HTG account.** You sign in with Discord. We store your Discord user ID, username and
-  avatar.
-- **Linked game identities, only the ones you choose to link:**
-  - **Steam:** your SteamID, via Steam sign-in. With your permission we read your public Steam
-    profile and achievements for the games HTG plays;
+- **Further linked game identities, only the ones you choose to link** (Discord sign-in and
+  Steam linking are live; see above):
+  - **Steam achievements:** with your permission we read your public achievements for the games
+    HTG plays;
   - **Xbox:** your Xbox user ID and gamertag, read from your Discord connections with your
     permission;
   - **Star Citizen:** your RSI handle, proved by a one-time code you place in your RSI bio;
@@ -126,9 +150,9 @@ pseudonym that can't be traced back to your game account.
 - **From Discord:** your Discord profile and roles in the HTG server.
 - **From game servers HTG runs or rents:** your in-game name, SteamID and match activity, and
   (on HTG-run servers) your connection IP.
-- **From services you link (planned):** Steam (your public profile and achievements, read only
-  when you ask), Xbox via your Discord connections, your public RSI citizen page, the PUBG API, and
-  Patreon.
+- **From services you link:** Discord (your user ID, name and avatar when you sign in) and Steam
+  (your SteamID, persona name and avatar when you link). Planned: Steam achievements, Xbox via
+  your Discord connections, your public RSI citizen page, the PUBG API, and Patreon.
 
 **Do you have to give it?** A Discord account is needed to join the community. Linking game
 accounts, sharing activity and supporting are optional; without them, the features that depend on
@@ -157,13 +181,15 @@ similarly significant effects on you. Bans are decided by people.
 
   | Provider | What for | Where |
   |---|---|---|
-  | Discord | The community server, the HTG Bot, sign-in | United States |
+  | Discord | The community server, the HTG Bot, sign-in to app.hiddentoken.com | United States |
+  | Steam | Linking your Steam account to your HTG account; your persona name and avatar through the Steam Web API | United States |
+  | HTG's own server | app.hiddentoken.com: your account, linked identities and sign-in sessions | United States |
   | Cloudflare | Website hosting, DNS, security | Global network |
   | Proton | Email for appeals | Switzerland |
   | QONZER | The War Dogs server | United States |
   | [Ticket Tool](https://tickettool.xyz/privacy-policy) | Support tickets in Discord | Transcripts stay in HTG's Discord |
   | [Wick](https://wickbot.com/legal/privacy) | Anti-raid protection in Discord | *[not published]* |
-  | *[server host, to be chosen (plan D1)]* | app.hiddentoken.com and HTG's game servers (planned) | United States |
+  | DigitalOcean | HTG's own game servers (planned) | United States |
   | Patreon | Supporter membership (planned) | United States |
 
 - **Game publishers,** when we report cheating or abuse on their games, receive the evidence and
@@ -183,7 +209,9 @@ States, your information is transferred there. *[Transfer safeguards to confirm 
 | Server audits | Kept; they hold only totals, nothing about any one member |
 | Moderation records | While they count toward the ladder, and for as long as a ban lasts. *[Period after a ban ends: for counsel]* |
 | Ticket transcripts (in HTG's staff channel) and appeal emails | *[Proposed: 12 months after the ticket or appeal closes, then deleted]* |
-| Your HTG account and linked identities (planned) | Until you delete them or unlink |
+| Your HTG account and linked identities | Until you delete them or unlink |
+| Sign-in sessions | 30 days, or until you log out |
+| The log of sign-ins, links and unlinks | With the account |
 | Identity-linked game events (planned) | **13 months**, then anonymised; totals and leaderboard history are kept with no link to you *[period pending legal review]* |
 | Connection IPs from HTG game servers (planned) | *[Proposed: not kept, except with a ban record]* |
 | Patreon tier and status (planned) | While you are a supporter, then 30 days |
@@ -197,7 +225,9 @@ You can:
 - **delete** it. We remove your account and linked identities, and anonymise your game events, so
   match totals and leaderboards stay correct but no longer point to you. We may keep a ban record
   where we need it to enforce a ban *[for counsel]*;
-- **unlink** a game account, or make your profile private, at any time in the app (planned);
+- **unlink** a game account at any time on your account page (your account keeps at least one
+  signed-in identity, so the last one is removed by deleting the account); make your profile
+  private (planned);
 - **withdraw consent** to stats tied to you by unlinking;
 - **object** to how we use your information, or ask us to restrict it;
 - **complain** to your local data protection authority, if you have one.
