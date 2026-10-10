@@ -61,6 +61,12 @@ and those bans are theirs alone. Bulkhead doesn't review them. No official table
 settings is published (*unverified* beyond the patch notes). Bulkhead publishes no fan-content
 policy or required notice; the EULA forbids suggesting any affiliation or endorsement.
 
+**Map art.** Bulkhead has given communities permission to use its map art (announced in the
+official WARDOGS Discord; seen 2026-10-10). HTG's War Dogs status card in Discord shows the map in
+play with Bulkhead's own images from its RCON console, one per map and lighting. HTG hosts copies
+under `hiddentoken.com/games/wardogs/maps/`, unchanged except re-encoded without metadata. The
+images remain Bulkhead's, and nothing about them is sold.
+
 **Approved hosts.** At launch (2026-09-08) Bulkhead named three approved hosting partners:
 QONZER, BisectHosting and xREALM. The current [server hub](https://www.wardogs.com/serverhub)
 lists only BisectHosting and xREALM (checked 2026-10-02), but QONZER is still an approved host
