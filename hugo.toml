@@ -65,6 +65,12 @@ disableKinds = ["taxonomy", "term", "rss"]
     target = "static/brand"
     files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "htg-mark-auto.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
   [[module.mounts]]
+    # The War Dogs banner at a stable path for the hub's War Dogs overlay (gravel#66,
+    # hidden-token-gaming/deploy#127), which shows it on the server's pages on app.hiddentoken.com.
+    source = "brand/wardogs"
+    target = "static/brand/wardogs"
+    files = ["server-banner-1024x256.png"]
+  [[module.mounts]]
     source = "brand/social"
     target = "assets/brand/social"
     files = ["og-image-1200x630.png"]
