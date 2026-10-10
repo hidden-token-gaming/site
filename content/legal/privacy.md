@@ -35,8 +35,10 @@ information is used (the "controller"). Contact: [privacy@hiddentoken.com](mailt
 | app.hiddentoken.com: your HTG account, signing in with Discord and linking your Steam account | Live |
 | app.hiddentoken.com: War Dogs stats, leaderboards and member profiles | **Live** since 2026-10-10 |
 | app.hiddentoken.com: moderating HTG's game servers, from the web and from Discord | **Live** since 2026-10-10 |
-| Presence and seeding: who is playing now, and the seeding call for the War Dogs server | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
-| app.hiddentoken.com: stats for other games, further linked identities (Xbox, Star Citizen, PUBG) and Muster (crew-up sessions) | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
+| Seeding calls for the War Dogs server, and the time seeders spend on it | **Live** since 2026-10-10 |
+| Muster: squad-ups and seeding nights at app.hiddentoken.com/muster and from the HTG Bot | **Live** since 2026-10-10 |
+| Presence: who is playing now | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
+| app.hiddentoken.com: stats for other games and further linked identities (Xbox, Star Citizen, PUBG) | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
 | Supporters (Patreon) | **Planned** |
 
 Discord, Steam, Xbox, Roberts Space Industries, KRAFTON, Patreon and the game publishers have
@@ -98,7 +100,7 @@ recognition to you later, and only if you choose to link things. If you sign in:
   We read no achievements or play history yet; that is planned below. You can unlink Steam at
   any time on your account page.
 - **Staying signed in** uses one cookie on app.hiddentoken.com that identifies your session and
-  nothing else. It is strictly necessary for the account to work, carries no tracking, and lasts
+  nothing else (Muster's pages add their own, below). It is strictly necessary for the account to work, carries no tracking, and lasts
   30 days or until you log out. "Log out everywhere" ends every session you have.
 - **A log of sign-ins, links and unlinks** with their dates, kept so you and HTG can see what
   happened to your account. HTG does not store the IP address or browser you sign in from. To
@@ -130,14 +132,41 @@ their SteamID with a secret key, so it can't be worked back to the Steam account
 replaces it only if you link your Steam account on app.hiddentoken.com and turn on "show my name on
 leaderboards" on your profile; it's off until you do, and you can turn it off again. Your profile
 (your totals and recent matches) is visible to you and HTG's owner, and to everyone only if you
-show your name. *[Leaderboards are currently visible only to HTG's owner; they become public when
-this update takes effect.]*
+show your name.
 
 **Moderation on the server.** When staff kick, ban or message a player, from app.hiddentoken.com or
 from Discord, HTG records it in a moderation log: the date, the staff member, the action, the
 player's SteamID, the reason or message, and the result. The log can't be edited or deleted, so
 every action stays accountable, and a copy is posted in a private staff channel in Discord. A ban
 also goes on HTG's ban list for the server (SteamID, reason, date, and the date it's lifted).
+
+**Seeding calls.** War Dogs matches start at 20 players, so when the server is under that at the
+times HTG sets, the HTG Bot pings the members who chose the `@WD Seeder` role, at most once every
+two hours. While a call is open, HTG records how long each player is on the server, by their
+SteamID, as **seeding time**: one record per player per call, kept like match stats (below), so
+seeders can be recognised. If you don't choose the role, you are never pinged; anyone on the
+server during a call is counted, as for match stats.
+
+### Muster: squad-ups and seeding nights
+
+Muster is how members get together for a game: a **squad-up** (whoever wants to play on HTG's War
+Dogs server now or at a set time) or a **seeding night**. You create or join one at
+app.hiddentoken.com/muster or with the HTG Bot's `/squad` and `/seed` commands in Discord. HTG
+keeps, by your Discord user ID:
+
+- **The sessions you host:** the game and activity, when it starts, and the note you wrote;
+- **Your seat in each session you join:** the role, and whether you were interested, confirmed,
+  attended or didn't show (the host marks attendance);
+- **Your attendance as participation:** when the host marks you attended, the session and how long
+  it ran are added to your participation on app.hiddentoken.com, kept like match stats (below).
+
+A session and who is in it are visible to members signed in to app.hiddentoken.com, and to anyone
+who can see the Discord channel where its card is posted. When a session has a start time, the HTG Bot also lists it as a Discord event; marking yourself interested in that
+event signs you up in Muster, and Discord shows the event's interested list under its own policy.
+Muster's pages sign you in through your HTG account. They set their own cookies on
+app.hiddentoken.com/muster, all strictly necessary and none for tracking: one that keeps you
+signed in to Muster for up to an hour or until you sign out of it, one that lasts only while a
+sign-in is under way, and one that carries a single confirmation message to the next page.
 
 ## What we will collect when app.hiddentoken.com launches (planned)
 
@@ -161,17 +190,13 @@ update it and announce the change first.
   Counter-Strike 2 server logs also record the IP address you connect from. *[Whether to keep IPs at all, and for how long, is
   a question for counsel; the default is to drop them at ingestion except where needed for ban
   enforcement.]*
-- **Muster sessions.** Sessions you create or sign up for, and your role in them. Your gamertag or
-  game name is shown to the members of a session you join, so you can add each other in game.
+- **Gamertags and game names in Muster sessions.** For games where you add each other in game
+  (Sea of Thieves, Star Citizen, PUBG), your linked gamertag or game name is shown to the members of
+  a session you join.
 - **"Who's playing now" (presence).** If you share your activity on Discord, the HTG Bot sees
   which game you are playing. HTG counts how many members are playing each game right now and
   shows those counts; it doesn't store who was playing or a history of anyone's activity. If you
   don't share your activity on Discord, the bot sees nothing.
-- **Seeding the War Dogs server.** War Dogs matches start at 20 players, so when the server is
-  nearly empty at the times HTG sets, the bot pings the members who chose the seeding role, with a
-  limit on how often and quiet hours. The time you spend on the server during a seeding call is
-  recorded as participation, kept like your other stats, so seeders can be recognised.
-
 **Before you link anything, HTG shows no name.** Servers HTG runs record stats for everyone who
 plays. Until you link and choose to show your name, those stats appear only under a generated
 pseudonym that can't be traced back to your game account.
@@ -200,7 +225,8 @@ them won't work for you.
 | Keep everyone safe: moderation, bans, cheating and ban-evasion checks | Moderation log, ban lists, SteamIDs, connection IPs from HTG servers (planned) | Our and members' legitimate interest in a safe, fair community |
 | Stats and leaderboards for everyone who plays on HTG's servers, under pseudonyms | Match stats and the kill feed, by SteamID | Legitimate interest in running fair, competitive servers *[for counsel: players who aren't HTG members]* |
 | Showing your name and profile on the leaderboards | Your linked Steam account and your choice | Your consent: the switch on your profile, which you can turn off |
-| Who's playing now and seeding calls (planned) | Live Discord activity (counted, not stored), the seeding role, time on the server during a call | Legitimate interest in getting matches started; the seeding role and sharing your activity are your choice |
+| Seeding calls | The seeding role, and each player's time on the server during a call, by SteamID | Legitimate interest in getting matches started; the seeding role is your choice |
+| Who's playing now (planned) | Live Discord activity, counted, not stored | Legitimate interest in getting members together; sharing your activity is your choice |
 | Supporter perks | Patreon tier and status | Providing the perks (contract) |
 | Answer support requests and appeals | What you send us | Legitimate interest; contract |
 | Manage the server and see whether the community is growing | Server audits: totals only, no names, IDs or message content | Legitimate interest in running the community |
@@ -220,7 +246,7 @@ similarly significant effects on you. Bans are decided by people.
   |---|---|---|
   | Discord | The community server, the HTG Bot, sign-in to app.hiddentoken.com | United States |
   | Steam | Linking your Steam account to your HTG account; your persona name and avatar through the Steam Web API | United States |
-  | HTG's own server | app.hiddentoken.com: your account, linked identities, sign-in sessions, game stats, the kill feed and the moderation log | United States |
+  | HTG's own server | app.hiddentoken.com: your account, linked identities, sign-in sessions, game stats, seeding time, the kill feed, the moderation log and Muster | United States |
   | Cloudflare | Website hosting, DNS, security | Global network |
   | Proton | Email for appeals | Switzerland |
   | QONZER | The War Dogs server | United States |
@@ -251,6 +277,8 @@ States, your information is transferred there. *[Transfer safeguards to confirm 
 | The log of sign-ins, links and unlinks | With the account |
 | Per-match game stats (by SteamID) | **13 months**. After that, each player's matches are added up into monthly totals, still by SteamID, which keep the season and all-time leaderboards correct and stay until the player asks us to erase them *[period and the monthly totals pending legal review]* |
 | Pseudonyms | Until the player asks us to erase their stats |
+| Seeding time and attendance (participation) | Like per-match stats: **13 months**, then monthly totals until the player asks us to erase them *[pending legal review, as above]* |
+| Muster sessions and the seats in them | **13 months** after the session ends, then deleted with every seat in it *[pending legal review]* |
 | The War Dogs kill feed, as received | 30 days |
 | The moderation log for HTG's game servers | Kept; it can't be edited or deleted *[how long after a ban ends: for counsel]* |
 | Ban lists for HTG's game servers | While the ban stands; a lifted ban stays in the moderation log |
@@ -266,9 +294,10 @@ You can:
 - **see** what HTG holds about you and get a copy of it;
 - **correct** it;
 - **delete** it. We remove your account and linked identities, and erase your game stats: your
-  SteamID is replaced with a random token in every match, monthly total and stored kill-feed batch,
-  and your pseudonym is deleted, so match totals and leaderboards stay correct but show "Deleted
-  player" and no longer point to you. We may keep a ban record and the moderation log where we
+  SteamID is replaced with a random token in every match, monthly total, seeding and attendance
+  record and stored kill-feed batch, and your pseudonym is deleted, so match totals and
+  leaderboards stay correct but show "Deleted player" and no longer point to you. In Muster we
+  delete the sessions you hosted and your seats in other sessions. We may keep a ban record and the moderation log where we
   need them to enforce a ban *[for counsel]*. **You don't need to be an HTG member:** anyone who
   has played on HTG's War Dogs server can ask, with their SteamID *[how we confirm a non-member
   owns that SteamID: for counsel]*;
