@@ -3,7 +3,7 @@
 > **Draft, pending legal review.** Not yet in effect. Items in *[brackets]* are open questions for
 > counsel.
 
-**Last updated:** 2026-10-10
+**Last updated:** 2026-10-11
 
 Hidden Token Gaming ("HTG", "we") is a gaming community for adults. This policy explains what
 information about you HTG handles, why, who else sees it, how long we keep it and what you can ask
@@ -37,7 +37,8 @@ information is used (the "controller"). Contact: [privacy@hiddentoken.com](mailt
 | app.hiddentoken.com: moderating HTG's game servers, from the web and from Discord | **Live** since 2026-10-10 |
 | Seeding calls for the War Dogs server, and the time seeders spend on it | **Live** since 2026-10-10 |
 | Muster: squad-ups and seeding nights at app.hiddentoken.com/muster and from the HTG Bot | **Live** since 2026-10-10 |
-| Presence: who is playing now | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
+| Presence: who is playing now, in #whos-playing | **Live** since 2026-10-11 |
+| Session recaps after HTG events (Wardogs Wednesdays) | **Live** since 2026-10-11 |
 | app.hiddentoken.com: stats for other games and further linked identities (Xbox, Star Citizen, PUBG) | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
 | Supporters (Patreon) | **Planned** |
 
@@ -122,6 +123,12 @@ this applies to **everyone who plays on it**, whether or not they are an HTG mem
 - **Match stats.** From those reads HTG records each match (the map and when it started and ended)
   and, for each player in it, their SteamID, team, kills, deaths and time on the server. That is
   what the leaderboards count.
+- **Player counts and scores.** HTG also records how many players were on, minute by minute, and
+  each match's team scores. These are counts only: nothing in them says who was playing.
+- **Session recaps.** After an HTG event such as Wardogs Wednesday, the HTG Bot posts a recap in the
+  game's channel, with a page on app.hiddentoken.com: peak players, the matches with their scores,
+  and the top five by kills, under the same pseudonyms as the leaderboards. Nothing new is
+  collected for a recap; it is read from the match stats above.
 - **The kill feed.** The server also sends HTG each kill as it happens, with the SteamIDs of the
   player who made it and the player who was hit. HTG stores each batch as it arrives for 30 days,
   so it can turn them into more detailed stats (planned), then deletes it.
@@ -193,10 +200,12 @@ update it and announce the change first.
 - **Gamertags and game names in Muster sessions.** For games where you add each other in game
   (Sea of Thieves, Star Citizen, PUBG), your linked gamertag or game name is shown to the members of
   a session you join.
-- **"Who's playing now" (presence).** If you share your activity on Discord, the HTG Bot sees
-  which game you are playing. HTG counts how many members are playing each game right now and
-  shows those counts; it doesn't store who was playing or a history of anyone's activity. If you
-  don't share your activity on Discord, the bot sees nothing.
+- **"Who's playing now" (presence).** If you share your activity on Discord, Discord tells the HTG
+  Bot what you're doing. The bot keeps only the name of the game you're playing, and only in memory
+  while you're online, so it can count how many members are playing each game. The count is shown in
+  #whos-playing and never names anyone. HTG doesn't write down who was playing or keep any history
+  of anyone's activity. Everything else Discord sends, such as music or a custom status, is
+  ignored. If you don't share your activity on Discord, the bot sees nothing.
 **Before you link anything, HTG shows no name.** Servers HTG runs record stats for everyone who
 plays. Until you link and choose to show your name, those stats appear only under a generated
 pseudonym that can't be traced back to your game account.
@@ -279,6 +288,8 @@ States, your information is transferred there. *[Transfer safeguards to confirm 
 | Pseudonyms | Until the player asks us to erase their stats |
 | Seeding time and attendance (participation) | Like per-match stats: **13 months**, then monthly totals until the player asks us to erase them *[pending legal review, as above]* |
 | Muster sessions and the seats in them | **13 months** after the session ends, then deleted with every seat in it *[pending legal review]* |
+| Player counts by the minute, and each match's team scores | Kept; they hold only counts and scores, nothing about any one player |
+| What members are playing (presence) | Not kept: held in the HTG Bot's memory only while you're online, to count it |
 | The War Dogs kill feed, as received | 30 days |
 | The moderation log for HTG's game servers | Kept; it can't be edited or deleted *[how long after a ban ends: for counsel]* |
 | Ban lists for HTG's game servers | While the ban stands; a lifted ban stays in the moderation log |
