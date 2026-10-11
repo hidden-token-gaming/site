@@ -13,8 +13,8 @@ questions for counsel, is private. Playbooks are members-only and live in Discor
 Needs Hugo 0.162+.
 
 ```bash
-hugo server                                   # http://localhost:1313
-hugo --gc --minify --panicOnWarning           # what CI builds
+TZ=America/Chicago hugo server                         # http://localhost:1313
+TZ=America/Chicago hugo --gc --minify --panicOnWarning # what CI builds
 npx markdownlint-cli2                         # what the lint workflow runs
 ```
 
@@ -45,13 +45,20 @@ The brand kit's SVGs and PNGs are generated: change `brand/tools/build.py`, neve
   invite from there, so a game's invite lives in one place. Art is fetched from Steam at build time
   (`layouts/_partials/game-art.html`). The build fails if a game's page and its entry don't match,
   if a game with a page has no invite, or if art can't be fetched.
+- **Events:** `/events` lists the next two weeks from Muster's public calendar
+  (`CalendarService/ListUpcoming` on app.hiddentoken.com, `params.musterCalendar`), read at build
+  time with no token (`layouts/_shortcodes/upcoming.html`). That's the weekly anchors from Muster's
+  playbooks and the sessions members schedule; the feed carries no member data. Times are US
+  Central, so the build runs with `TZ=America/Chicago` (`layouts/_partials/local-time.html` fails
+  the build otherwise). A failed read fails the build, so the last good page stays up. CI rebuilds
+  every six hours to keep it current.
 - **No third-party anything:** no scripts, fonts, analytics or game logos. `static/_headers` sets a
   strict CSP.
 
 ## CI and deploys
 
 `site.yml` builds with a checksum-pinned Hugo, checks every internal link and anchor with lychee,
-and deploys with Wrangler: `main` to production, same-repo PRs to a preview whose URL is in the job
+and deploys with Wrangler: `main` to production (also every six hours, for the events page), same-repo PRs to a preview whose URL is in the job
 summary. It needs the `CLOUDFLARE_PAGES_TOKEN` secret (Pages edit only) and the
 `CLOUDFLARE_ACCOUNT_ID` variable. The Pages project, domain and DNS are OpenTofu in
 [`deploy`](https://github.com/hidden-token-gaming/deploy) (`tofu/cloudflare/`). `lint.yml` runs

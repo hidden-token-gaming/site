@@ -1,0 +1,9 @@
+{{- /* local-time is an instant in the build's local zone, which must be the zone given (an IANA
+       name): this Hugo has no zone conversion, and measuring the offset by hand can't place the
+       hour around a daylight-saving change, so the build sets TZ and Go converts exactly. A build
+       with any other TZ fails here rather than publish times in the wrong zone (the site
+       workflow and the README set TZ). Params: dict "t" (time.Time) "zone" (string). */ -}}
+{{- if ne (os.Getenv "TZ") .zone -}}
+  {{- errorf "local-time: build with TZ=%s (TZ is %q), so times read in %s" .zone (os.Getenv "TZ") .zone -}}
+{{- end -}}
+{{- return .t.Local -}}
