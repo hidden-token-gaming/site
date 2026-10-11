@@ -8,7 +8,9 @@ through all three maps.
 
 ## How we play
 
-- **Find the server** in War Dogs under **Deploy → Community**. The browser shows who's on.
+- **Find the server** in War Dogs under **Deploy → Community**. The browser shows who's on. Or
+  go straight there: paste our server ID into **Join by ID**, at the bottom left of the Community
+  browser: `a968511e-a098-48ec-9bdb-909255478f15`. The server card in Discord shows it too.
 - **Seed it to 20.** A match on the HTG server starts at 20 players; below that, everyone waits in
   the lobby. Members who take the seeder ping get called when the server needs players, so the
   first 20 arrive together.
