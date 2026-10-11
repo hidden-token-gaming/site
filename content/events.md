@@ -1,21 +1,20 @@
 ---
 title: Events
-description: HTG's weekly sessions, with times in US Central and UTC.
+description: HTG's sessions for the next two weeks, with times in US Central and UTC.
 ---
 
 # Events
 
-Every HTG session is a Discord event, so it shows up under **Events** at the top of the channel
-list, with a reminder when it starts. Times are US Central (CT); Discord shows each event in your
-own time zone.
+HTG plays a few fixed nights every week, and members schedule more on
+[Muster](https://app.hiddentoken.com/muster/calendar). The list below is Muster's calendar for the
+next two weeks, refreshed every few hours; Muster's own calendar is always current. Times are US
+Central (CT), with UTC beside them.
 
-## Weekly sessions
+Every HTG session is also a Discord event, so it shows up under **Events** at the top of the
+channel list, with a reminder when it starts. Press **Interested** on one to get the reminder.
 
-| Session | When | Where on Discord |
-|---|---|---|
-| **Wardogs Wednesdays** | Every Wednesday, 6–10 pm CT (23:00–03:00 UTC) | `Squad 1` voice, War Dogs category |
+## Coming up
 
-We seed the HTG WARDOGS server to 20 players, then play King of the Hill. Pick War Dogs and the
-seeding ping when you join, and press **Interested** on the event to get the reminder.
+{{< upcoming >}}
 
-New to HTG? [Join us](join.md) first.
+New to HTG? [Join us](join.md) first, and pick your games so you see their channels and pings.

@@ -7,6 +7,9 @@ disableKinds = ["taxonomy", "term", "rss"]
 [params]
   description = "Your hidden token to always having a game to play. Variety gaming for adults who play fair. 18+."
   sourceRepo = "https://github.com/hidden-token-gaming/site"
+  # Muster's public calendar (site#20): the events page reads it at build time, with no token.
+  # Connect's GET form of CalendarService/ListUpcoming, an empty request (the next 14 days).
+  musterCalendar = "https://app.hiddentoken.com/muster.v1.CalendarService/ListUpcoming?encoding=json&message=%7B%7D"
 
 [markup.goldmark.parser]
   autoHeadingIDType = "github"   # the rules and legal pages read on GitHub too; keep its anchor ids
@@ -86,3 +89,8 @@ disableKinds = ["taxonomy", "term", "rss"]
   [[module.mounts]]
     source = "static"
     target = "static"
+
+# The events page converts times to US Central with the build's TZ (layouts/_partials/local-time.html),
+# so the template may read TZ; the defaults are kept.
+[security.funcs]
+  getenv = ["^HUGO_", "^CI$", "^TZ$"]

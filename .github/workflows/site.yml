@@ -7,6 +7,10 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+  # The events page is built from Muster's calendar (site#20): rebuild every six hours so a newly
+  # scheduled session reaches it within a quarter day.
+  schedule:
+    - cron: "17 */6 * * *"
 
 permissions:
   contents: read
@@ -30,6 +34,8 @@ jobs:
           echo "${HUGO_SHA256}  hugo.tar.gz" | sha256sum -c -
           tar -xzf hugo.tar.gz hugo && sudo install hugo /usr/local/bin/hugo && rm hugo hugo.tar.gz
       - name: Build
+        env:
+          TZ: America/Chicago # the events page's times are US Central (layouts/_partials/local-time.html)
         run: hugo --gc --minify --panicOnWarning
       - name: Link check (internal links and anchors)
         uses: lycheeverse/lychee-action@v2

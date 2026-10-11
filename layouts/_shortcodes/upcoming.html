@@ -1,0 +1,40 @@
+{{- /* The next two weeks of HTG sessions, from Muster's public calendar (site#20): the weekly
+       anchors its playbooks declare and the sessions members schedule, read at build time from
+       CalendarService/ListUpcoming (no token; it carries no member data). The site workflow
+       rebuilds every six hours, so a session shows here within a quarter day of being scheduled;
+       Muster's own calendar is live. A failed read fails the build, so the last good page stays
+       up rather than an empty or partial list. Times are US Central, with UTC beside them. */ -}}
+{{- $api := site.Params.musterCalendar -}}
+{{- $res := dict -}}
+{{- with try (resources.GetRemote $api) -}}
+  {{- with .Err }}{{ errorf "upcoming: %s: %s" $api . }}{{ end -}}
+  {{- $res = .Value | transform.Unmarshal -}}
+{{- end -}}
+{{- $zone := $res.timezone -}}
+{{- if ne $zone "America/Chicago" }}{{ errorf "upcoming: Muster's zone is %q; this page says US Central" $zone }}{{ end -}}
+{{- $day := "" -}}
+{{- $open := false -}}
+{{- range $e := $res.entries -}}
+  {{- $start := partial "local-time.html" (dict "t" (time.AsTime .startsAt) "zone" $zone) -}}
+  {{- $end := partial "local-time.html" (dict "t" (time.AsTime .endsAt) "zone" $zone) -}}
+  {{- $label := time.Format "Monday, January 2" $start -}}
+  {{- if ne $label $day -}}
+    {{- if $open }}</ul>{{ end }}
+<h3>{{ $label }}</h3>
+<ul class="sessions">
+    {{- $day = $label -}}{{- $open = true -}}
+  {{- end }}
+  <li>
+    <strong>{{ .title }}</strong> · {{ .gameName }}<br>
+    <time datetime="{{ .startsAt }}">{{ time.Format (cond (eq (time.Format "pm" $start) (time.Format "pm" $end)) "3:04" "3:04 pm") $start }}</time>–<time datetime="{{ .endsAt }}">{{ time.Format "3:04 pm" $end }}</time> CT
+    ({{ time.Format "15:04" (time.AsTime .startsAt) }}–{{ time.Format "15:04" (time.AsTime .endsAt) }} UTC)
+    {{- if eq .kind "anchor" }} · every week{{ end }}
+    {{- if .seats }} · {{ default 0 .seatsTaken }} of {{ .seats }} seats taken{{ end }}
+    {{- with .description }}<br>{{ . }}{{ end }}
+    {{- with .url }}<br><a href="{{ . }}">{{ if eq $e.kind "session" }}Sign up on Muster{{ else }}See it on Muster{{ end }}</a>{{ end }}
+  </li>
+{{- end }}
+{{- if $open }}</ul>{{ end -}}
+{{- if not $res.entries }}
+<p>Nothing is on the calendar for the next two weeks.</p>
+{{- end -}}

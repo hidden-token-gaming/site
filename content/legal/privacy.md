@@ -168,7 +168,9 @@ keeps, by your Discord user ID:
   it ran are added to your participation on app.hiddentoken.com, kept like match stats (below).
 
 A session and who is in it are visible to members signed in to app.hiddentoken.com, and to anyone
-who can see the Discord channel where its card is posted. When a session has a start time, the HTG Bot also lists it as a Discord event; marking yourself interested in that
+who can see the Discord channel where its card is posted. Upcoming sessions with a start time are
+also listed publicly, on hiddentoken.com/events and Muster's calendar, with only the game, the
+activity, the time and how many seats are taken: never who hosts, who signed up, or the host's note. When a session has a start time, the HTG Bot also lists it as a Discord event; marking yourself interested in that
 event signs you up in Muster, and Discord shows the event's interested list under its own policy.
 Muster's pages sign you in through your HTG account. They set their own cookies on
 app.hiddentoken.com/muster, all strictly necessary and none for tracking: one that keeps you
