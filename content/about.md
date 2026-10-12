@@ -28,7 +28,7 @@ the weekly sessions are on [events](events.md).
 
 ## Who runs it
 
-John founded HTG and runs it. Moderators and a lead for each game join as the community grows.
+John founded HTG and runs it. Moderators and game hosts join as the community grows.
 Questions go in a `#support` ticket on Discord.
 
 ## What we're building
