@@ -69,7 +69,7 @@ level 2 server boost, which the server doesn't have yet.
 
 | Variation | Emblem | For | Colour |
 |---|---|---|---|
-| [`staff`](logo/variations/htg-mark-staff.svg) | Shield | Staff: HMFIC, Admin, Moderators | `#f1c40f` |
+| [`staff`](logo/variations/htg-mark-staff.svg) | Shield | Staff: Admin, Moderators | `#f1c40f` |
 | [`host`](logo/variations/htg-mark-host.svg) | Arcade prize ticket | Event hosts and events | `#8a63f5` |
 | [`supporter`](logo/variations/htg-mark-supporter.svg) | Heart | Supporters, when they launch | none yet |
 | [`seeding`](logo/variations/htg-mark-seeding.svg) | Seedling | Seeding the War Dogs server | `#3ee07a` |
@@ -84,7 +84,7 @@ level 2 server boost, which the server doesn't have yet.
 - Every emblem is HTG's own symbol. None is, or imitates, a game's logo or art, which the
   publisher rules forbid. Add a game's variation the same way: an HTG symbol for how the community
   plays it, never the game's mark.
-- **Colours:** staff and the games use their Discord role colours (Moderator, Game Lead), so the
+- **Colours:** staff and the games use their Discord role colours (Moderator, the game roles), so the
   art and Discord agree. Events use the brand purple, which means "events" in the kit. Every colour
   is at least 3:1 on the dark ground and on Discord's dark theme. Supporters get a colour when they
   launch. On light backgrounds, use ink.

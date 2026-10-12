@@ -291,13 +291,13 @@ def _emblem_parachute():
 
 
 # name → (emblem function, emblem, what it marks, colour or None for ink and white only).
-# Colours: staff and games use their Discord role colours (Moderator, Game Lead) so the art and
-# Discord agree; events use the brand purple, which means "events" in the kit (the Event Host
-# role's #9b59b6 is 2.7:1 on Discord's dark theme). Every colour is at least 3:1 on HTG's dark
+# Colours: staff and games use their Discord role colours (Moderator, the game roles) so the art
+# and Discord agree; events use the brand purple, which means "events" in the kit (the old Event
+# Host role's #9b59b6 was 2.7:1 on Discord's dark theme). Every colour is at least 3:1 on HTG's dark
 # ground and on Discord's. Supporters get a colour when they launch. Agreed with John, 2026-10-02.
 VARIATIONS = {
     "star": (_emblem_star, "Star", "The HTG mark itself", GREEN),
-    "staff": (_emblem_shield, "Shield", "Staff: HMFIC, Admin, Moderators", "#f1c40f"),
+    "staff": (_emblem_shield, "Shield", "Staff: Admin, Moderators", "#f1c40f"),
     "host": (_emblem_ticket, "Arcade prize ticket", "Event hosts and events", PURPLE),
     "supporter": (_emblem_heart, "Heart", "Supporters, when they launch", None),
     "seeding": (_emblem_seedling, "Seedling", "Seeding the War Dogs server", GREEN),
