@@ -16,7 +16,7 @@ information is used (the "controller"). Contact: [privacy@hiddentoken.com](mailt
 ## The short version
 
 - **We collect as little as we can.** Today that is what Discord already shows to everyone in the
-  server, the account you create if you sign in on app.hiddentoken.com, and the match stats and
+  server, the account you create if you sign in on hub.hiddentoken.com, and the match stats and
   moderation records of the War Dogs server HTG runs.
 - **We never sell your information,** and we don't show ads or use trackers.
 - **Your name on leaderboards is opt-in.** The War Dogs server HTG runs counts everyone who plays
@@ -32,14 +32,14 @@ information is used (the "controller"). Contact: [privacy@hiddentoken.com](mailt
 | The HTG Discord server and the HTG Bot | Live |
 | Game servers HTG runs or rents (today one War Dogs server) | Live |
 | Support tickets and appeals | Live |
-| app.hiddentoken.com: your HTG account, signing in with Discord and linking your Steam account | Live |
-| app.hiddentoken.com: War Dogs stats, leaderboards and member profiles | **Live** since 2026-10-10 |
-| app.hiddentoken.com: moderating HTG's game servers, from the web and from Discord | **Live** since 2026-10-10 |
+| hub.hiddentoken.com: your HTG account, signing in with Discord and linking your Steam account | Live |
+| hub.hiddentoken.com: War Dogs stats, leaderboards and member profiles | **Live** since 2026-10-10 |
+| hub.hiddentoken.com: moderating HTG's game servers, from the web and from Discord | **Live** since 2026-10-10 |
 | Seeding calls for the War Dogs server, and the time seeders spend on it | **Live** since 2026-10-10 |
-| Muster: squad-ups and seeding nights at app.hiddentoken.com/muster and from the HTG Bot | **Live** since 2026-10-10 |
+| Muster: squad-ups and seeding nights at hub.hiddentoken.com/muster and from the HTG Bot | **Live** since 2026-10-10 |
 | Presence: who is playing now, in #whos-playing | **Live** since 2026-10-11 |
 | Session recaps after HTG events (Wardogs Wednesdays) | **Live** since 2026-10-11 |
-| app.hiddentoken.com: stats for other games and further linked identities (Xbox, Star Citizen, PUBG) | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
+| hub.hiddentoken.com: stats for other games and further linked identities (Xbox, Star Citizen, PUBG) | **Planned.** Covered here so you know in advance; we will update this policy before it launches |
 | Supporters (Patreon) | **Planned** |
 
 Discord, Steam, Xbox, Roberts Space Industries, KRAFTON, Patreon and the game publishers have
@@ -88,7 +88,7 @@ deleted when it's no longer needed or when you ask.
 - **Ban appeals** are sent by email to [appeals@hiddentoken.com](mailto:appeals@hiddentoken.com), hosted by Proton in Switzerland.
   We use what you send only to decide your appeal.
 
-### Your HTG account (app.hiddentoken.com)
+### Your HTG account (hub.hiddentoken.com)
 
 You don't need an account to be a member; it exists so HTG can tie game stats, sessions and
 recognition to you later, and only if you choose to link things. If you sign in:
@@ -100,7 +100,7 @@ recognition to you later, and only if you choose to link things. If you sign in:
   SteamID and, from Steam's public profile data (the Steam Web API), your persona name and avatar.
   We read no achievements or play history yet; that is planned below. You can unlink Steam at
   any time on your account page.
-- **Staying signed in** uses one cookie on app.hiddentoken.com that identifies your session and
+- **Staying signed in** uses one cookie on hub.hiddentoken.com that identifies your session and
   nothing else (Muster's pages add their own, below). It is strictly necessary for the account to work, carries no tracking, and lasts
   30 days or until you log out. "Log out everywhere" ends every session you have.
 - **A log of sign-ins, links and unlinks** with their dates, kept so you and HTG can see what
@@ -118,7 +118,7 @@ connection data under their own policies. HTG reads the server through its admin
 this applies to **everyone who plays on it**, whether or not they are an HTG member:
 
 - **Who's on, live.** Every 15 seconds HTG reads the match and the player list: in-game name,
-  SteamID, team, kills, deaths and ping. Members signed in to app.hiddentoken.com see who is on;
+  SteamID, team, kills, deaths and ping. Members signed in to hub.hiddentoken.com see who is on;
   the in-game names and ping aren't saved.
 - **Match stats.** From those reads HTG records each match (the map and when it started and ended)
   and, for each player in it, their SteamID, team, kills, deaths and time on the server. That is
@@ -126,7 +126,7 @@ this applies to **everyone who plays on it**, whether or not they are an HTG mem
 - **Player counts and scores.** HTG also records how many players were on, minute by minute, and
   each match's team scores. These are counts only: nothing in them says who was playing.
 - **Session recaps.** After an HTG event such as Wardogs Wednesday, the HTG Bot posts a recap in the
-  game's channel, with a page on app.hiddentoken.com: peak players, the matches with their scores,
+  game's channel, with a page on hub.hiddentoken.com: peak players, the matches with their scores,
   and the top five by kills, under the same pseudonyms as the leaderboards. Nothing new is
   collected for a recap; it is read from the match stats above.
 - **The kill feed.** The server also sends HTG each kill as it happens, with the SteamIDs of the
@@ -136,12 +136,12 @@ this applies to **everyone who plays on it**, whether or not they are an HTG mem
 
 **How you appear.** A leaderboard shows each player under a **pseudonym**: two words generated from
 their SteamID with a secret key, so it can't be worked back to the Steam account. Your name
-replaces it only if you link your Steam account on app.hiddentoken.com and turn on "show my name on
+replaces it only if you link your Steam account on hub.hiddentoken.com and turn on "show my name on
 leaderboards" on your profile; it's off until you do, and you can turn it off again. Your profile
 (your totals and recent matches) is visible to you and HTG's owner, and to everyone only if you
 show your name.
 
-**Moderation on the server.** When staff kick, ban or message a player, from app.hiddentoken.com or
+**Moderation on the server.** When staff kick, ban or message a player, from hub.hiddentoken.com or
 from Discord, HTG records it in a moderation log: the date, the staff member, the action, the
 player's SteamID, the reason or message, and the result. The log can't be edited or deleted, so
 every action stays accountable, and a copy is posted in a private staff channel in Discord. A ban
@@ -158,26 +158,26 @@ server during a call is counted, as for match stats.
 
 Muster is how members get together for a game: a **squad-up** (whoever wants to play on HTG's War
 Dogs server now or at a set time) or a **seeding night**. You create or join one at
-app.hiddentoken.com/muster or with the HTG Bot's `/squad` and `/seed` commands in Discord. HTG
+hub.hiddentoken.com/muster or with the HTG Bot's `/squad` and `/seed` commands in Discord. HTG
 keeps, by your Discord user ID:
 
 - **The sessions you host:** the game and activity, when it starts, and the note you wrote;
 - **Your seat in each session you join:** the role, and whether you were interested, confirmed,
   attended or didn't show (the host marks attendance);
 - **Your attendance as participation:** when the host marks you attended, the session and how long
-  it ran are added to your participation on app.hiddentoken.com, kept like match stats (below).
+  it ran are added to your participation on hub.hiddentoken.com, kept like match stats (below).
 
-A session and who is in it are visible to members signed in to app.hiddentoken.com, and to anyone
+A session and who is in it are visible to members signed in to hub.hiddentoken.com, and to anyone
 who can see the Discord channel where its card is posted. Upcoming sessions with a start time are
 also listed publicly, on hiddentoken.com/events and Muster's calendar, with only the game, the
 activity, the time and how many seats are taken: never who hosts, who signed up, or the host's note. When a session has a start time, the HTG Bot also lists it as a Discord event; marking yourself interested in that
 event signs you up in Muster, and Discord shows the event's interested list under its own policy.
 Muster's pages sign you in through your HTG account. They set their own cookies on
-app.hiddentoken.com/muster, all strictly necessary and none for tracking: one that keeps you
+hub.hiddentoken.com/muster, all strictly necessary and none for tracking: one that keeps you
 signed in to Muster for up to an hour or until you sign out of it, one that lasts only while a
 sign-in is under way, and one that carries a single confirmation message to the next page.
 
-## What we will collect when app.hiddentoken.com launches (planned)
+## What we will collect when hub.hiddentoken.com launches (planned)
 
 This section describes the design. It takes effect only when these features launch, and we will
 update it and announce the change first.
@@ -255,9 +255,9 @@ similarly significant effects on you. Bans are decided by people.
 
   | Provider | What for | Where |
   |---|---|---|
-  | Discord | The community server, the HTG Bot, sign-in to app.hiddentoken.com | United States |
+  | Discord | The community server, the HTG Bot, sign-in to hub.hiddentoken.com | United States |
   | Steam | Linking your Steam account to your HTG account; your persona name and avatar through the Steam Web API | United States |
-  | HTG's own server | app.hiddentoken.com: your account, linked identities, sign-in sessions, game stats, seeding time, the kill feed, the moderation log and Muster | United States |
+  | HTG's own server | hub.hiddentoken.com: your account, linked identities, sign-in sessions, game stats, seeding time, the kill feed, the moderation log and Muster | United States |
   | Cloudflare | Website hosting, DNS, security | Global network |
   | Proton | Email for appeals | Switzerland |
   | QONZER | The War Dogs server | United States |

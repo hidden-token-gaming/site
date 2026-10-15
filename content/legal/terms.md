@@ -11,7 +11,7 @@ Texas limited liability company. They cover everything HTG runs:
 - the website;
 - the HTG Discord server and the HTG Bot;
 - the game servers HTG runs or rents;
-- app.hiddentoken.com (planned).
+- hub.hiddentoken.com (planned).
 
 By joining or using any of them, you agree to these terms and to our [privacy policy](privacy.md).
 

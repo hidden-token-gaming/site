@@ -31,7 +31,7 @@ The brand kit's SVGs and PNGs are generated: change `brand/tools/build.py`, neve
 - **Brand colours and mark files** are mounted from `brand/` (`hugo.toml`), so a brand change is
   one PR here. The mark is also published at stable paths (`/brand/htg-mark-noglow.svg`,
   `/brand/htg-mark-mono.svg`, `/brand/htg-mark-auto.svg`, `/brand/png/htg-mark-noglow-32.png`,
-  `/brand/png/htg-mark-256.png`) because the hub on app.hiddentoken.com loads its logo and favicon from the site; the pages
+  `/brand/png/htg-mark-256.png`) because the hub on hub.hiddentoken.com loads its logo and favicon from the site; the pages
   themselves use the fingerprinted copies. `htg-mark-auto.svg` switches between the full-colour
   and one-colour mark with the viewer's colour scheme, and has its own CSP in `static/_headers`
   so its internal style also applies when it's opened directly.
@@ -46,7 +46,7 @@ The brand kit's SVGs and PNGs are generated: change `brand/tools/build.py`, neve
   (`layouts/_partials/game-art.html`). The build fails if a game's page and its entry don't match,
   if a game with a page has no invite, or if art can't be fetched.
 - **Events:** `/events` lists the next two weeks from Muster's public calendar
-  (`CalendarService/ListUpcoming` on app.hiddentoken.com, `params.musterCalendar`), read at build
+  (`CalendarService/ListUpcoming` on hub.hiddentoken.com, `params.musterCalendar`), read at build
   time with no token (`layouts/_shortcodes/upcoming.html`). That's the weekly anchors from Muster's
   playbooks and the sessions members schedule; the feed carries no member data. Times are US
   Central, so the build runs with `TZ=America/Chicago` (`layouts/_partials/local-time.html` fails
