@@ -30,6 +30,7 @@ All notable changes to the site are documented here. The format follows
 
 ### Changed
 
+- The hub's address is **hub.hiddentoken.com**, not app.hiddentoken.com (hidden-token-gaming/deploy#202): the privacy policy, the terms, the events page's Muster link, the build's Muster calendar URL (`params.musterCalendar`) and the READMEs. app.hiddentoken.com answers with a 301 to the new name, path and query kept.
 - Staff wording after the Discord restructure (hidden-token-gaming/.github#58): HMFIC is gone, so the about page says moderators and game hosts join as the community grows, and the brand kit's staff variation reads "Staff: Admin, Moderators" (regenerated with `build.py`; the SVG's title and `variations.json` change, the art doesn't). The colour notes name the game roles, which now carry the kit's game colours, instead of the deleted Game Lead role (#48).
 - `/events` is built from Muster's public calendar, so no hand-kept list remains (#20). The page lists the next two weeks: the weekly anchors from Muster's playbooks (Wardogs Wednesdays) and the sessions members schedule. It shows times in US Central and UTC, with seats taken and a link to sign up. It is read at build time from `CalendarService/ListUpcoming`, which needs no token and carries no member data. The build runs with `TZ=America/Chicago`, and the time partial fails it under any other zone, so times never publish in the wrong zone. A failed read also fails the build, so the last good page stays up. `site.yml` rebuilds every six hours.
 

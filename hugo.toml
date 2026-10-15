@@ -9,7 +9,7 @@ disableKinds = ["taxonomy", "term", "rss"]
   sourceRepo = "https://github.com/hidden-token-gaming/site"
   # Muster's public calendar (site#20): the events page reads it at build time, with no token.
   # Connect's GET form of CalendarService/ListUpcoming, an empty request (the next 14 days).
-  musterCalendar = "https://app.hiddentoken.com/muster.v1.CalendarService/ListUpcoming?encoding=json&message=%7B%7D"
+  musterCalendar = "https://hub.hiddentoken.com/muster.v1.CalendarService/ListUpcoming?encoding=json&message=%7B%7D"
 
 [markup.goldmark.parser]
   autoHeadingIDType = "github"   # the rules and legal pages read on GitHub too; keep its anchor ids
@@ -62,14 +62,14 @@ disableKinds = ["taxonomy", "term", "rss"]
     files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "htg-mark-auto.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
   [[module.mounts]]
     # The same mark files once more at stable paths (/brand/htg-mark-noglow.svg, ...): the hub on
-    # app.hiddentoken.com loads its logo and favicon from the site, and a fingerprinted name would
+    # hub.hiddentoken.com loads its logo and favicon from the site, and a fingerprinted name would
     # change under it. The pages keep using the fingerprinted copies from the assets mount above.
     source = "brand/logo"
     target = "static/brand"
     files = ["htg-mark-noglow.svg", "htg-mark-mono.svg", "htg-mark-auto.svg", "png/htg-mark-noglow-32.png", "png/htg-mark-256.png"]
   [[module.mounts]]
     # The War Dogs banner at a stable path for the hub's War Dogs overlay (gravel#66,
-    # hidden-token-gaming/deploy#127), which shows it on the server's pages on app.hiddentoken.com.
+    # hidden-token-gaming/deploy#127), which shows it on the server's pages on hub.hiddentoken.com.
     source = "brand/wardogs"
     target = "static/brand/wardogs"
     files = ["server-banner-1024x256.png"]

@@ -38,7 +38,7 @@ line-up does (John, 2026-10-03). Discord allows 120 characters; this is 96.
 | [`logo/htg-mark.svg`](logo/htg-mark.svg) | The main mark, full colour with glow, on dark backgrounds |
 | [`logo/htg-mark-noglow.svg`](logo/htg-mark-noglow.svg) | Full colour without the glow, for 64 px and below |
 | [`logo/htg-mark-mono.svg`](logo/htg-mark-mono.svg) | One colour (`currentColor`), for light backgrounds and small sizes |
-| [`logo/htg-mark-auto.svg`](logo/htg-mark-auto.svg) | Follows the viewer's colour scheme: full colour without the glow in dark mode, one colour in ink (`#0b1222`, the light theme's text) in light mode. For a logo or favicon that has to be one file in both schemes, such as the hub's on app.hiddentoken.com |
+| [`logo/htg-mark-auto.svg`](logo/htg-mark-auto.svg) | Follows the viewer's colour scheme: full colour without the glow in dark mode, one colour in ink (`#0b1222`, the light theme's text) in light mode. For a logo or favicon that has to be one file in both schemes, such as the hub's on hub.hiddentoken.com |
 | [`logo/htg-lockup.svg`](logo/htg-lockup.svg) | Mark plus wordmark, side by side, on dark backgrounds |
 | [`logo/htg-lockup-stacked.svg`](logo/htg-lockup-stacked.svg) | Mark above the wordmark, on dark backgrounds |
 | [`logo/htg-lockup-mono.svg`](logo/htg-lockup-mono.svg) | Side-by-side lockup in ink, for light backgrounds |
