@@ -7,7 +7,8 @@
 // names; only the count is read, and nothing is stored or logged.
 //
 // Without a count (the widget off, Discord slow or down, an answer that isn't a count) the page is
-// served as built: the element stays hidden.
+// served as built: the element stays hidden. Either way the answer says what it found in
+// x-online-now (the count, or "unknown"), so the Function can be seen at work.
 //
 // _headers isn't applied to a Function's response (Cloudflare Pages, "Headers"), so the site-wide
 // headers are set here too. functions/headers.test.mjs fails CI if this copy and static/_headers'
@@ -51,6 +52,7 @@ export async function onRequestGet(context) {
   const served = new Response(page.body, { status: page.status, statusText: page.statusText, headers });
   if (!page.ok || !(page.headers.get("content-type") || "").includes("text/html")) return served;
   const n = await onlineCount();
+  served.headers.set("x-online-now", n === null ? "unknown" : String(n));
   if (n === null) return served;
   return new HTMLRewriter()
     .on("[data-online-now]", {
