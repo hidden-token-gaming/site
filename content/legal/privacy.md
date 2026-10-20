@@ -3,7 +3,7 @@
 > **Draft, pending legal review.** Not yet in effect. Items in *[brackets]* are open questions for
 > counsel.
 
-**Last updated:** 2026-10-11
+**Last updated:** 2026-10-20
 
 Hidden Token Gaming ("HTG", "we") is a gaming community for adults. This policy explains what
 information about you HTG handles, why, who else sees it, how long we keep it and what you can ask
@@ -62,6 +62,11 @@ When you join the HTG Discord server, HTG staff and the bots in the server can s
 shows to server staff: your username and ID, avatar, roles, when you joined, your onboarding
 answers (games, platform, region and pings), and what you post in the server. Discord stores all
 of it under [Discord's privacy policy](https://discord.com/privacy).
+
+The [join page](../join.md) shows how many members are online in the HTG Discord right now. The
+number comes from Discord's server widget, which HTG has switched on. The widget is public: anyone
+can ask Discord for it, and it lists up to 100 online members' display names, avatars and online
+status, and the voice channels everyone can see. HTG reads only the number and keeps nothing.
 
 HTG keeps its own copies of only:
 

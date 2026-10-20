@@ -5,6 +5,8 @@ description: How to join Hidden Token Gaming.
 
 # Join
 
+{{< online-now >}}
+
 1. **Check you're 18 or older.** HTG is an adults-only community.
 2. **Read the [rules](policy/rules.md)** and the [code of conduct](policy/code-of-conduct.md). You
    agree to them when you join.

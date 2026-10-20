@@ -1,0 +1,6 @@
+{{- /* How many members are on the Discord right now (site#33). The page itself is static and says
+       nothing here: the element is hidden. functions/join/index.js fills it in on each request to
+       the join page from Discord's server widget (presence_count only), server-side, so the page
+       makes no third-party request and the CSP is unchanged. Without a count (the widget off,
+       Discord slow or down) it stays hidden, and the page reads as it did before. */ -}}
+<p class="online-now" data-online-now hidden></p>
