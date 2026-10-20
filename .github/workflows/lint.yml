@@ -14,3 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - uses: DavidAnson/markdownlint-cli2-action@v24
+
+  # The join page's Function (functions/join/index.js) carries its own copy of the site-wide
+  # headers, because Cloudflare doesn't apply _headers to a Function's response: it must match
+  # static/_headers word for word (site#33).
+  functions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - run: node --test functions/headers.test.mjs

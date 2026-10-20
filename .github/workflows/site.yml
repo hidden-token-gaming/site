@@ -59,6 +59,11 @@ jobs:
       (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
     steps:
+      # Only the Functions: wrangler uploads ./functions beside the built site (site#33).
+      - uses: actions/checkout@v7
+        with:
+          sparse-checkout: functions
+          sparse-checkout-cone-mode: false
       - uses: actions/download-artifact@v8
         with:
           name: public

@@ -61,6 +61,12 @@ anywhere else ([rule 5](policy/rules.md)). So are hate speech, threats, targeted
 doxxing, raids, mass spam and scams. Most other rule breaks move one step up a ladder, from a warning
 to timeouts, a kick and then a ban ([moderation](policy/moderation.md)).
 
+## Is the server down?
+
+Check [status.hiddentoken.com](https://status.hiddentoken.com). It checks the War Dogs server and
+this site every five minutes and shows whether each is up. If it says the server is up and you
+still can't join, open a ticket in `#support`.
+
 ## How do I report someone or reach staff?
 
 Open a ticket in `#support`. Only you and staff can see it. Don't argue a staff decision in public
